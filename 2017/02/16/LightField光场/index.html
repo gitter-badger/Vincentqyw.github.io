@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20160721220526502">
 <meta property="og:image" content="http://img.blog.csdn.net/20160721220359828">
 <meta property="og:image" content="http://img.blog.csdn.net/20160721221525400">
-<meta property="og:updated_time" content="2017-02-16T03:08:22.600Z">
+<meta property="og:updated_time" content="2017-02-16T05:51:43.419Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Light Field 光场">
 <meta name="twitter:description" content="这里我汇总了有关光场（Light Field）一些有用的链接以及光场数据的处理过程。目前还在整理中，随时更新。">
@@ -352,9 +352,12 @@
 <li>Deep learning: <a href="https://github.com/iro-cp/FCRN-DepthPrediction" target="_blank" rel="external">Depth Estimation</a></li>
 </ul>
 <h1 id="光场数据"><a href="#光场数据" class="headerlink" title="光场数据"></a><code>光场数据</code></h1><p>大家在刚刚入手光场领域的时候会用到现在的消费者用的手持光场相机Lytro或者ILLUM，如图（实验室的设备，我可买不起ILLUM）：<br> <img src="http://img.blog.csdn.net/20160721220526502" alt="Lytro相机"><br>Lytro相机<br> <img src="http://img.blog.csdn.net/20160721220359828" alt="ILLUM相机"><br>ILLUM相机</p>
-<p>由Lytro拍摄的图像的原格式是.lfp格式，我们要解码成我们需要的格式。<br>工具：Lytro Desktop，MATLAB光场工具包（很强大，推荐）。</p>
-<p>用数据线把设备连接到电脑，打开Lytro Desktop，点击想要导入的图片，选中点击右上角立即处理，然后打开我的电脑图片-&gt;Lytro Desktop\Libraries\Lytro 图库.lytrolibrary*，就可以发现有很多文件夹名字是一串很长数字字母啥的，点击去就可以发现好几个文件，如下：<br><img src="http://img.blog.csdn.net/20160721221525400" alt="这里写图片描述"></p>
+<h2 id="获取-LFP-or-LFR-原文件"><a href="#获取-LFP-or-LFR-原文件" class="headerlink" title="获取.LFP(or .LFR)原文件"></a>获取.LFP(or .LFR)原文件</h2><p>由Lytro拍摄的图像的原格式是.lfp格式，我们要解码成我们需要的格式。<br>工具：Lytro Desktop，MATLAB光场工具包（很强大，推荐，本文介绍该方法）。</p>
+<p>用数据线把设备连接到电脑，打开Lytro Desktop，点击想要导入的图片，选中点击右上角立即处理，然后打开我的电脑图片-&gt;Lytro Desktop\Libraries\Lytro 图库.lytrolibrary*，就可以发现有很多文件夹名字是一串很长数字字母啥的，点击去就可以发现好几个文件，如下：</p>
+<center><img src="http://img.blog.csdn.net/20160721221525400" alt="光场图像文件列表"></center>
+
 <p>raw.lfp就是我们需要的原文件，之后呢用MATLAB光场工具包转化成自己喜欢的格式，方法明天整理。</p>
+<h3 id="Matlab-Light-Field-ToolBox-光场工具箱-的使用"><a href="#Matlab-Light-Field-ToolBox-光场工具箱-的使用" class="headerlink" title="Matlab Light Field ToolBox(光场工具箱)的使用"></a>Matlab Light Field ToolBox(光场工具箱)的使用</h3><p>首先下载<a href="http://cn.mathworks.com/matlabcentral/fileexchange/49683-light-field-toolbox-v0-4" target="_blank" rel="external">光场工具箱</a>并仔细阅读说明文档。该说明文档提供了各种函数</p>
 
       
     </div>
@@ -562,7 +565,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于光场的有用的链接"><span class="nav-number">1.</span> <span class="nav-text">关于光场的有用的链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#光场数据"><span class="nav-number">2.</span> <span class="nav-text">光场数据</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于光场的有用的链接"><span class="nav-number">1.</span> <span class="nav-text">关于光场的有用的链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#光场数据"><span class="nav-number">2.</span> <span class="nav-text">光场数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取-LFP-or-LFR-原文件"><span class="nav-number">2.1.</span> <span class="nav-text">获取.LFP(or .LFR)原文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Matlab-Light-Field-ToolBox-光场工具箱-的使用"><span class="nav-number">2.1.1.</span> <span class="nav-text">Matlab Light Field ToolBox(光场工具箱)的使用</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
