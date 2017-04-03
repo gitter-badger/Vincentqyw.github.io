@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20160721220359828">
 <meta property="og:image" content="http://img.blog.csdn.net/20160721221525400">
 <meta property="og:image" content="https://raw.githubusercontent.com/Vincentqyw/Vincentqyw.github.io/master/images/LF_README.bmp">
-<meta property="og:updated_time" content="2017-04-03T06:48:22.788Z">
+<meta property="og:updated_time" content="2017-04-03T06:55:09.545Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Light Field 光场">
 <meta name="twitter:description" content="这里我汇总了有关光场（Light Field）一些有用的链接以及光场数据的处理过程。目前还在整理中，随时更新。">
@@ -361,7 +361,7 @@
 
 <p>raw.lfp就是我们需要的原文件，之后呢用MATLAB光场工具包转化成自己喜欢的格式，方法明天整理。</p>
 <h3 id="Matlab-Light-Field-ToolBox-光场工具箱-的使用"><a href="#Matlab-Light-Field-ToolBox-光场工具箱-的使用" class="headerlink" title="Matlab Light Field ToolBox(光场工具箱)的使用"></a>Matlab Light Field ToolBox(光场工具箱)的使用</h3><p>首先下载<a href="http://cn.mathworks.com/matlabcentral/fileexchange/49683-light-field-toolbox-v0-4" target="_blank" rel="external">光场工具箱</a>并仔细阅读说明文档，根据文档把相应的数据拷贝到工具箱的文件夹下(这一步很关键，要仔细配置)。如果不想在官网下载的话我上传到了度娘的云盘链接：<a href="http://pan.baidu.com/s/1o8x3ePG" target="_blank" rel="external">链接</a> 密码：h565。这是我修改后的一个版本，可以直接运行，推荐下载这个版本。</p>
-<center><img src="https://raw.githubusercontent.com/Vincentqyw/Vincentqyw.github.io/master/images/LF_README.bmp" alt=""></center>
+<center><img src="https://raw.githubusercontent.com/Vincentqyw/Vincentqyw.github.io/master/images/LF_README.bmp" alt=""> </center>
 
 
 <p>该说明文档提供了各种函数用于从LFP文件中提取出自己需要的各种信息：白图像(white image)，Raw Image，对齐后的图像，以及颜色校正，频域滤波后的图像等。</p>
@@ -372,10 +372,10 @@
 </ul>
 <p>那么前期准备做好了，接下来就是run code.</p>
 <ul>
-<li>解码LFP文件<br>如果只是单纯的读出LFP/LFR、RAW文件的数据的话可以分别用工具包提供的如下函数：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">  注意两个函数的返回值不一样。LFReadLFP返回一个结构体类型的变量，它包含相机的各个信息，我们可以根据自己的需要保留数据。LFReadRaw返回的是一张uint16的灰度图，还没有经过demosaicing操作。去马赛克操作在malatb中有相应的函数，这点不用担心。</div><div class="line">  </div><div class="line">  我们在这里不是直接调用的LFReadLFP而是调用了工具箱提供的LFLytroDecodeImage函数。</div><div class="line">如果运行有问题，将LFLytroDecodeImage中的WhiteImageDatabase路径由以下：</div><div class="line"></div><div class="line">``` matlab</div><div class="line">DecodeOptions = LFDefaultField( &apos;DecodeOptions&apos;, &apos;WhiteImageDatabasePath&apos; ,fullfile(&apos;Cameras&apos;,&apos;WhiteImageDatabase.mat&apos;));% line 71</div></pre></td></tr></table></figure>
+<li>解码LFP文件<br>如果只是单纯的读出LFP/LFR、RAW文件的数据的话可以分别用工具包提供的如下函数：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">  注意两个函数的返回值不一样。LFReadLFP返回一个结构体类型的变量，它包含相机的各个信息，我们可以根据自己的需要保留数据。LFReadRaw返回的是一张uint16的灰度图，还没有经过demosaicing操作。去马赛克操作在malatb中有相应的函数，这点不用担心。我们在这里不是直接调用的LFReadLFP而是调用了工具箱提供的LFLytroDecodeImage函数。如果运行有问题，将LFLytroDecodeImage中的WhiteImageDatabase路径由以下：</div><div class="line">``` matlab</div><div class="line">DecodeOptions = LFDefaultField( &apos;DecodeOptions&apos;, &apos;WhiteImageDatabasePath&apos; ,fullfile(&apos;Cameras&apos;,&apos;WhiteImageDatabase.mat&apos;));% line 71``` </div><div class="line">改为：</div><div class="line">``` matlab</div><div class="line">DecodeOptions = LFDefaultField( &apos;DecodeOptions&apos;, &apos;WhiteImageDatabasePath&apos;...</div><div class="line">,fullfile(&apos;Cameras&apos;,LFMetadata.SerialData.camera.serialNumber,&apos;WhiteImageDatabase.mat&apos;)); </div><div class="line">% 注意，这条插在  ---Select appropriate white image---上行，而不是在原来的71行修改。</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>改为：<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">DecodeOptions = LFDefaultField( <span class="string">'DecodeOptions'</span>, <span class="string">'WhiteImageDatabasePath'</span> ,fullfile(<span class="string">'Cameras'</span>,LFMetadata.SerialData.camera.serialNumber,<span class="string">'WhiteImageDatabase.mat'</span>)); <span class="comment">% 注意，这条插在  ---Select appropriate white image---上行，而不是在原来的71行修改。</span></div></pre></td></tr></table></figure></p>
+<p>dfs </p>
 <p>好了这下应该可以跑了。</p>
 <ul>
 <li>频域滤波以及颜色校正<br>这部分分别用到了LFFilt4DFFT以及LFColourCorrect函数。以LYTRO 1.0 为例子，我们得到的光场图像一种有11*11个视角，但是这个121个视角子孔径图像的质量真的不敢恭维，尤其是边角处的视角(u=1,v=1)时，这个图像时完全变成黑色的。所以嘛，LFFilt4DFFT这个函数是将这些变成黑色的图像或者质量不好的图像进行校正的，具体原理不作展开。LFColourCorrect这个函数是利用gamma变化对原始图像进行颜色校正的，这一点比较简单。总之利用这两个函数能够让我们得到的光场图像的质量更好，当然你也可以选择不用。</li>
