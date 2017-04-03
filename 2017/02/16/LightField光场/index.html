@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20160721220359828">
 <meta property="og:image" content="http://img.blog.csdn.net/20160721221525400">
 <meta property="og:image" content="https://raw.githubusercontent.com/Vincentqyw/Vincentqyw.github.io/master/images/LF_README.bmp">
-<meta property="og:updated_time" content="2017-04-03T08:35:40.468Z">
+<meta property="og:updated_time" content="2017-04-03T08:43:36.202Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Light Field 光场">
 <meta name="twitter:description" content="这里我汇总了有关光场（Light Field）一些有用的链接以及光场数据的处理过程。目前还在整理中，随时更新。">
@@ -372,11 +372,11 @@
 </ul>
 <p>那么前期准备做好了，接下来就是run code.</p>
 <ul>
-<li>解码LFP文件<br>如果只是单纯的读出LFP/LFR、RAW文件的数据的话可以分别用工具包提供的如下函数：LFReadLFP、LFReadRaw。注意两个函数的返回值不一样。LFReadLFP返回一个结构体类型的变量，它包含相机的各个信息，我们可以根据自己的需要保留数据。LFReadRaw返回的是一张uint16的灰度图，还没有经过demosaicing操作。去马赛克操作在malatb中有相应的函数，这点不用担心。我们在这里不是直接调用的LFReadLFP而是调用了工具箱提供的LFLytroDecodeImage函数。如果运行有问题，将LFLytroDecodeImage中的WhiteImageDatabase路径由以下：</li>
+<li>解码LFP文件</li>
 </ul>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">DecodeOptions = LFDefaultField( <span class="string">'DecodeOptions'</span>, <span class="string">'WhiteImageDatabasePath'</span>...</div><div class="line">,fullfile(<span class="string">'Cameras'</span>,<span class="string">'WhiteImageDatabase.mat'</span>));<span class="comment">% line 71</span></div></pre></td></tr></table></figure>
+<p>如果只是单纯的读出LFP/LFR、RAW文件的数据的话可以分别用工具包提供的如下函数：LFReadLFP、LFReadRaw。注意两个函数的返回值不一样。LFReadLFP返回一个结构体类型的变量，它包含相机的各个信息，我们可以根据自己的需要保留数据。LFReadRaw返回的是一张uint16的灰度图，还没有经过demosaicing操作。去马赛克操作在malatb中有相应的函数，这点不用担心。我们在这里不是直接调用的LFReadLFP而是调用了工具箱提供的LFLytroDecodeImage函数。如果运行有问题，将LFLytroDecodeImage中的WhiteImageDatabase路径由以下：<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">DecodeOptions = LFDefaultField( <span class="string">'DecodeOptions'</span>, <span class="string">'WhiteImageDatabasePath'</span>...</div><div class="line">,fullfile(<span class="string">'Cameras'</span>,<span class="string">'WhiteImageDatabase.mat'</span>));<span class="comment">% line 71</span></div></pre></td></tr></table></figure></p>
 <p>改为:</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"> DecodeOptions = LFDefaultField( <span class="string">'DecodeOptions'</span>, <span class="string">'WhiteImageDatabasePath'</span>...</div><div class="line"> ,fullfile(<span class="string">'Cameras'</span>,LFMetadata.SerialData.camera.serialNumber,<span class="string">'WhiteImageDatabase.mat'</span>));</div><div class="line"><span class="comment">% 注意，这条插在  ---Select appropriate white image---上行，而不是在原来的71行修改。</span></div></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">DecodeOptions = LFDefaultField( <span class="string">'DecodeOptions'</span>, <span class="string">'WhiteImageDatabasePath'</span>...</div><div class="line"> ,fullfile(<span class="string">'Cameras'</span>,LFMetadata.SerialData.camera.serialNumber,<span class="string">'WhiteImageDatabase.mat'</span>));</div><div class="line"><span class="comment">%== 注意，这条插在  ---Select appropriate white image---上行，而不是在原来的71行修改==。</span></div></pre></td></tr></table></figure>
 <p>   经过这样的修改之后，这下应该可以跑了。</p>
 <ul>
 <li>频域滤波以及颜色校正</li>
