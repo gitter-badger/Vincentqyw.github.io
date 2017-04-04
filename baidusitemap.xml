@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>http://yoursite.com/2016/08/08/demo/</loc>
+    <lastmod>2017-04-04T09:23:04.860Z</lastmod>
+    <data>
+        <display>
+        <title>Markdown 学习</title>
+        <pubTime>2016-08-08T14:10:22.000Z</pubTime>
+        
+        <tag>Markdown</tag>
+         
+        <tag>资料</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/02/16/LightField%E5%85%89%E5%9C%BA/</loc>
     <lastmod>2017-04-04T09:18:50.521Z</lastmod>
     <data>
@@ -57,23 +76,6 @@
         <pubTime>2017-01-16T02:43:01.000Z</pubTime>
         
         <tag>Matlab</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/08/08/demo/</loc>
-    <lastmod>2017-02-16T05:00:56.142Z</lastmod>
-    <data>
-        <display>
-        <title>Markdown 学习</title>
-        <pubTime>2016-08-08T14:10:22.000Z</pubTime>
-        
-        <tag>Markdown</tag>
          
          
            

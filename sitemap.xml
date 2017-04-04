@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/08/08/demo/</loc>
+    
+    <lastmod>2017-04-04T09:23:04.860Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/02/16/LightField%E5%85%89%E5%9C%BA/</loc>
     
     <lastmod>2017-04-04T09:18:50.521Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>http://yoursite.com/2017/01/16/Matlab%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</loc>
     
     <lastmod>2017-02-16T06:01:47.849Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/08/08/demo/</loc>
-    
-    <lastmod>2017-02-16T05:00:56.142Z</lastmod>
     
   </url>
   
