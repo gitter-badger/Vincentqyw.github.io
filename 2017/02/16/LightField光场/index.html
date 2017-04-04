@@ -110,7 +110,7 @@
 <meta property="og:image" content="http://i4.buimg.com/4851/2b43c8d2cfb3ae03.png">
 <meta property="og:image" content="http://i4.buimg.com/4851/54c189a41878d481.png">
 <meta property="og:image" content="http://i4.buimg.com/4851/e3a132bb65c60ae8.png">
-<meta property="og:updated_time" content="2017-04-04T06:14:16.620Z">
+<meta property="og:updated_time" content="2017-04-04T06:23:01.029Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Light Field 光场以及MATLAB光场工具包(LightField ToolBox)的使用说明">
 <meta name="twitter:description" content="这里我汇总了有关光场（Light Field）一些有用的链接以及光场数据的处理过程。目前还在整理中，随时更新。">
@@ -389,7 +389,7 @@
 <p><strong><font color="red">Sample_test</font></strong>表示我们的测试目录，里面包含了相机信息以及自己拍摄照片的图像（lfp/lfr）。<br><strong><font color="red">Cameras</font></strong> 这个目录中又包含了几个文件夹，它们分别是以“A”或者“B”开头，在其后面有一长串数字。这其实就是光场相机的serial number，我们可以从默认目录<u> c:\Users\<username>\AppData\Local\Lytro\cameras\sn- serial_number</username></u>中找到，这个数字每个相机不一样，大家根据自己的相机序列号建立自己的目录哈。”A”表示的是LYTRO系列相机，“B”表示ILLUM系列相机；以上图为例，”A303134427”文件夹下又有一个文件夹<font color="red">WhiteImages</font>，这里面放着由该相机拍摄的白图像。所谓白图像就是一张由光场相机拍摄的白色的图像，当然自己也可以拿着光场相机对着白色的墙面拍几张，但是效果并不一定很好。庆幸的是LYTRO官方提供了白图像，我们可以从以下目录找到:<u> c:\Users\ <strong>username</strong>\AppData\Local\Lytro\cameras\sn- serial_number</u>。<br>如下图：</p>
 <center><img src="http://i1.piimg.com/4851/727c438cc80fba2f.png"></center>
 
-<p> 我们发现有以下4个文件：data.C.0/1/2/3，这是官方把图像压缩成了这种格式，我们需要用工具箱进行解码。我们需要拷贝出这4个文件，放在“WhiteImages”文件夹里。这一步相当关键，一定要确保拷贝对了目录。<br><strong><font color="red">Images</font></strong>文件夹下包含我们需要处理的文件们，<font color="red">F01</font>下存放LYTRO系列拍摄的文件，<font color="red">B01</font>下存放ILLUM系列拍摄的文件。<br>经过我们上述的过程之后，最后我们的目录会变成这样（注意：<u>Sample_test与LFToolBox0.4为同级目录，各个文件夹的名字务必正确</u>）：</p>
+<p> 我们发现有以下4个文件：data.C.0/1/2/3，这是官方把图像压缩成了这种格式，我们需要用工具箱进行解码。我们需要拷贝出这4个文件，放在<font color="red">WhiteImages</font>文件夹里。这一步相当关键，一定要确保拷贝对了目录。<br><strong><font color="red">Images</font></strong>文件夹下包含我们需要处理的文件们，<font color="red">F01</font>下存放LYTRO系列拍摄的文件，<font color="red">B01</font>下存放ILLUM系列拍摄的文件。经过我们上述的过程之后，最后我们的目录会变成这样（注意：<u>Sample_test与LFToolBox0.4为同级目录，各个文件夹的名字务必正确</u>）：</p>
 <center><img src="http://i1.piimg.com/4851/a2de9efe8b57042a.png"></center>
 
 
@@ -410,17 +410,18 @@
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">DecodeOptions = LFDefaultField( <span class="string">'DecodeOptions'</span>, <span class="string">'WhiteImageDatabasePath'</span>...</div><div class="line">,fullfile(<span class="string">'Cameras'</span>,<span class="string">'WhiteImageDatabase.mat'</span>));<span class="comment">% line 71</span></div></pre></td></tr></table></figure>
 <p>改为：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">DecodeOptions = LFDefaultField( <span class="string">'DecodeOptions'</span>, <span class="string">'WhiteImageDatabasePath'</span>...</div><div class="line"> ,fullfile(<span class="string">'Cameras'</span>,LFMetadata.SerialData.camera.serialNumber,<span class="string">'WhiteImageDatabase.mat'</span>));</div><div class="line"><span class="comment">%== 注意，这条插在  ---Select appropriate white image---上行，而不是在原来的71行修改==。</span></div></pre></td></tr></table></figure>
-<p>经过以上步骤我们可以得到显示的图像：</p>
+<p>经过这样的修改之后，这下应该可以跑了。我们可以得到以下图像：</p>
 <center><img src="http://i1.piimg.com/4851/6447d8aa8eaa400f.png" width="100%"></center>
+
 
 <p>局部放大效果图：</p>
 <center><img src="http://i4.buimg.com/4851/dc870be41bd9c41a.png" width="100%"></center>
+
 
 <p>所有视角的图像：</p>
 <center><img src="http://i4.buimg.com/4851/2b43c8d2cfb3ae03.png" width="100%"></center>
 
 <p>这时候可以看到在边界视角上的图像比较黑，所以我们接下来要进行频域滤波，以及颜色校正。</p>
-<p>   经过这样的修改之后，这下应该可以跑了。</p>
 <h4 id="频域滤波以及颜色校正"><a href="#频域滤波以及颜色校正" class="headerlink" title="频域滤波以及颜色校正"></a>频域滤波以及颜色校正</h4><p>这部分分别用到了LFFilt4DFFT以及LFColourCorrect函数。以LYTRO 1.0 为例子，我们得到的光场图像一种有11*11个视角，但是这个121个视角子孔径图像的质量真的不敢恭维，尤其是边角处的视角(u=1,v=1)时，这个图像时完全变成黑色的。所以嘛，LFFilt4DFFT这个函数是将这些变成黑色的图像或者质量不好的图像进行校正的，具体原理不作展开。LFColourCorrect这个函数是利用gamma变化对原始图像进行颜色校正的，这一点比较简单。总之利用这两个函数能够让我们得到的光场图像的质量更好，当然你也可以选择不用。</p>
 <p>以下是经过滤波之后的所有子孔径图像，可以发现边界的视角相比于频域滤波之前有了很好的可视性。</p>
 <center><img src="http://i4.buimg.com/4851/54c189a41878d481.png" width="100%"></center>
