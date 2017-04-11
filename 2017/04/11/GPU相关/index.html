@@ -44,7 +44,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Matlab," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -63,20 +63,20 @@
 
 
 
-<meta name="description" content="以下是我在使用Matlab编程时遇到的问题以及解决方法，最后彩蛋随时补充。">
-<meta name="keywords" content="Matlab">
+<meta name="description" content="title: Memory Transfer Overheaddate: 2017-04-11 13:47:21tags:   GPU CUDA cudaMemcpy pinned memory  Before executing a kernel on the GPU, all of the data used by kernel needs to be transferred from the">
+<meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Matlab相关问题汇总">
-<meta property="og:url" content="http://yoursite.com/2017/01/16/Matlab相关问题汇总/index.html">
+<meta property="og:title" content="Vincent">
+<meta property="og:url" content="http://yoursite.com/2017/04/11/GPU相关/index.html">
 <meta property="og:site_name" content="Vincent">
-<meta property="og:description" content="以下是我在使用Matlab编程时遇到的问题以及解决方法，最后彩蛋随时补充。">
-<meta property="og:image" content="http://img.blog.csdn.net/20160628202102846">
-<meta property="og:image" content="http://img.blog.csdn.net/20160628202117268">
-<meta property="og:updated_time" content="2017-02-16T06:01:47.849Z">
+<meta property="og:description" content="title: Memory Transfer Overheaddate: 2017-04-11 13:47:21tags:   GPU CUDA cudaMemcpy pinned memory  Before executing a kernel on the GPU, all of the data used by kernel needs to be transferred from the">
+<meta property="og:image" content="http://www.cs.virginia.edu/~mwb7w/cuda_support/images/transfer_time.png">
+<meta property="og:image" content="http://www.cs.virginia.edu/~mwb7w/cuda_support/images/transfer_throughput.png">
+<meta property="og:updated_time" content="2017-04-11T05:58:19.105Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Matlab相关问题汇总">
-<meta name="twitter:description" content="以下是我在使用Matlab编程时遇到的问题以及解决方法，最后彩蛋随时补充。">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20160628202102846">
+<meta name="twitter:title" content="Vincent">
+<meta name="twitter:description" content="title: Memory Transfer Overheaddate: 2017-04-11 13:47:21tags:   GPU CUDA cudaMemcpy pinned memory  Before executing a kernel on the GPU, all of the data used by kernel needs to be transferred from the">
+<meta name="twitter:image" content="http://www.cs.virginia.edu/~mwb7w/cuda_support/images/transfer_time.png">
 
 
 
@@ -97,9 +97,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/01/16/Matlab相关问题汇总/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/11/GPU相关/"/>
 
-  <title> Matlab相关问题汇总 | Vincent </title>
+  <title>  | Vincent </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -275,7 +275,7 @@
             
             
               
-                Matlab相关问题汇总
+                
               
             
           </h1>
@@ -287,8 +287,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-16T10:43:01+08:00" content="2017-01-16">
-              2017-01-16
+            <time itemprop="dateCreated" datetime="2017-04-11T13:57:37+08:00" content="2017-04-11">
+              2017-04-11
             </time>
           </span>
 
@@ -298,8 +298,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/01/16/Matlab相关问题汇总/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/16/Matlab相关问题汇总/" itemprop="commentsCount"></span>
+                <a href="/2017/04/11/GPU相关/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/11/GPU相关/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -312,7 +312,7 @@
 
           
           
-             <span id="/2017/01/16/Matlab相关问题汇总/" class="leancloud_visitors" data-flag-title="Matlab相关问题汇总">
+             <span id="/2017/04/11/GPU相关/" class="leancloud_visitors" data-flag-title="">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -334,34 +334,21 @@
       
 
       
-        <p>以下是我在使用Matlab编程时遇到的问题以及解决方法，最后彩蛋随时补充。</p>
-<a id="more"></a>
-<h2 id="Matlab-写入Excel错误"><a href="#Matlab-写入Excel错误" class="headerlink" title="Matlab 写入Excel错误"></a>Matlab 写入Excel错误</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><blockquote>
-<p>Matlab 在创建EXCEL文件的时候总是出错，即使使用MATLAB自带的程序。 问题描述：在Matlab中使用xlswrite函数时，如果excel文件存在时，则程序能够正常运行；当excel文件不存在时，则会出现错误：</p>
-</blockquote>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Error using xlswrite (line <span class="number">220</span>) Error: 服务器出现意外情况。</div></pre></td></tr></table></figure>
-<p>问题解决：xlswrite函数在调用时会占用Excel的com端口，所以要保证在调用时这个端口是开放的，也就是没有被其他程序占用。打开任意一个Excel（我的是16版）文档，点击<strong>文件</strong>–<strong>选项</strong>，弹出Excel选项卡，在<strong>加载项</strong>中可以看到，活动应用程序加载项，以及非活动应用程序加载项；<br>由于我的系统中装了一个福昕阅读器，该程序占用了Excel的com端口，所以当Matlab再去调用这个端口时就会出现异常。具体解决方法：点击管理旁边的下拉菜单，选择COM加载项，点击转到，把福昕阅读器的前面的勾去掉，然后确定。<center><img src="http://img.blog.csdn.net/20160628202102846" alt="这里写图片描述"><img src="http://img.blog.csdn.net/20160628202117268" alt="这里写图片描述"></center></p>
-<h2 id="Matlab设置绘图坐标轴信息"><a href="#Matlab设置绘图坐标轴信息" class="headerlink" title="Matlab设置绘图坐标轴信息"></a>Matlab设置绘图坐标轴信息</h2><h3 id="问题描述-1"><a href="#问题描述-1" class="headerlink" title="问题描述"></a>问题描述</h3><blockquote>
-<p>Matlab 作图时更改纵轴刻度为科学计数法，指数放在框左上方</p>
-</blockquote>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">plot([<span class="number">0</span> <span class="number">1</span>],[<span class="number">0</span> <span class="number">.02</span>]) <span class="comment">% 作图，换成自己的图像就可以~</span></div><div class="line">oldLabels = str2num(get(gca,<span class="string">'YTickLabel'</span>));</div><div class="line">scale = <span class="number">10</span>^<span class="number">2</span>;newLabels = num2str(oldLabels*scale);</div><div class="line">set(gca,<span class="string">'YTickLabel'</span>,newLabels,<span class="string">'units'</span>,<span class="string">'normalized'</span>);</div><div class="line">posAxes = get(gca,<span class="string">'position'</span>);</div><div class="line">textBox = annotation(<span class="string">'textbox'</span>,<span class="string">'linestyle'</span>,<span class="string">'none'</span>,<span class="string">'string'</span>,[<span class="string">'x 10\it^&#123;'</span> sprintf(<span class="string">'%d'</span>,log10(<span class="number">1.</span>/scale)) <span class="string">'&#125;'</span>]);</div><div class="line">posAn = get(textBox,<span class="string">'position'</span>);</div><div class="line">set(textBox,<span class="string">'position'</span>,[posAxes(<span class="number">1</span>) posAxes(<span class="number">2</span>)+posAxes(<span class="number">4</span>) posAn(<span class="number">3</span>) posAn(<span class="number">4</span>)],<span class="string">'VerticalAlignment'</span>,<span class="string">'cap'</span>);</div></pre></td></tr></table></figure>
+        <p>title: Memory Transfer Overhead<br>date: 2017-04-11 13:47:21<br>tags: </p>
 <ul>
-<li>今天学到一个特别简单的语句，删除元胞数组中空元素： <strong>a(cellfun(@isempty,a))=[]</strong>；（2016.05.19）</li>
+<li>GPU</li>
+<li>CUDA</li>
+<li>cudaMemcpy</li>
+<li>pinned memory</li>
 </ul>
-<h2 id="Matlab显示图片错误"><a href="#Matlab显示图片错误" class="headerlink" title="Matlab显示图片错误"></a>Matlab显示图片错误</h2><h3 id="问题描述-2"><a href="#问题描述-2" class="headerlink" title="问题描述"></a>问题描述</h3><blockquote>
-<p>MATLAB图像显示总是白色</p>
-</blockquote>
-<p>  imshow是一个很强大的”武器”，显示图像简直无所不能，但这其中往往会出现问题。在处理图像时，我们的图像经常是经过了某种运算，为了保证其精度，系统会自动的将uint8型数据类型转化成double型。</p>
-<p>   “如果直接运行imshow(I)，我们会发现显示的是一个白色的图像。这是因为imshow()显示图像时对double型是认为在0~1范围内，即大于1时都是显示为白色，而imshow显示uint8型时是0~255范围。而经过运算的范围在0-255之间的double型数据就被不正常得显示为白色图像了。<br>   ”</p>
-<h3 id="解决之道"><a href="#解决之道" class="headerlink" title="解决之道"></a>解决之道</h3><ul>
-<li>可以利用mat2gray()函数，这个函数是归一化函数，可以把数据归一化到0-1之间，再用imshow()就可以了；</li>
-<li>或者对于一个处理后的黑白图像Img，若为double型可以这样写：imshow(Img/max(Img(:)))；</li>
-<li>还有一种就是：imshow(Img,[]);就是加一个[]，即可以自动调整显示；</li>
-</ul>
-<h2 id="彩蛋"><a href="#彩蛋" class="headerlink" title="彩蛋"></a>彩蛋</h2><ul>
-<li>大神教我们怎么画图，#MATLAB无所不能#，<a href="http://blogs.mathworks.com/graphics/" target="_blank" rel="external">戳戳这里</a>~</li>
-<li>Matlab 字体困扰了我很长时间，终于在网上找到了一个比较好的组合，<a href="http://pan.baidu.com/s/1geIRi2R" target="_blank" rel="external">猛戳这里</a>！<a href="http://blog.csdn.net/whoispo/article/details/50383362" target="_blank" rel="external">原文地址</a></li>
-</ul>
+<p>Before executing a kernel on the GPU, all of the data used by kernel needs to be transferred from the CPU memory to the GPU memory. After execution, the data produced by the kernel most likely needs to be transferred back to the CPU memory. The function most commonly used to accomplish this memory transferring is cudaMemcpy.</p>
+<a id="more"></a>
+<p>Figure 1 shows the average transfer time using  cudaMemcpy across a wide range of transfer sizes. All data was collected on Barracuda10, which has the following hardware setup: 3.20 GHz Core 2 Extreme processor, GTX 280 GPU, and PCIe version 2.0. Four different configurations were measured; they are differentiated by whether they measure transfers to or from the GPU memory and whether they use pinned or non-pinned memory. Pinned memory is memory allocated using the cudaMallocHost function, which prevents the memory by being swapped out and provides improved transfer speeds. Non-pinned memory is memory allocated using the malloc function. See Memory Management Overhead for details on the performance difference between cudaMallocHost and malloc. </p>
+<p>For small transfer sizes, there is a constant overhead of about 10 microseconds. At around 8 KB, the transfer time starts to increase linearly and the the performance advantage of pinned memory becomes more significant. For pinned memory, the direction of transfer (to or from GPU memory) has no noticeable impact on the transfer time. For non-pinned memory, the direction of transfer has no noticeable impact for transfer sizes larger than 10 MB. </p>
+<p><img src="http://www.cs.virginia.edu/~mwb7w/cuda_support/images/transfer_time.png" alt="img"><br><strong>Figure 1: Time per memory transfer as a function of transfer size. Note the logarithmic scales.</strong></p>
+<p>Figure 2 shows the average transfer throughput across the same range of transfer sizes. For small transfer sizes, there is little difference between the various configurations. Above about 16 KB, there is a significant difference between pinned and non-pinned memory. At the largest transfer sizes, pinned memory provides approximately 2.4x higher throughput than non-pinned memory. </p>
+<p><img src="http://www.cs.virginia.edu/~mwb7w/cuda_support/images/transfer_throughput.png" alt="img"><br><strong>Figure 2: Transfer throughput as a function of transfer size. Note the logarithmic scales.</strong></p>
+<p>【转载-<a href="http://www.cs.virginia.edu/~mwb7w/cuda_support/memory_transfer_overhead.html" target="_blank" rel="external">原网址</a>】</p>
 
       
     </div>
@@ -403,27 +390,17 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Matlab/" rel="tag">#Matlab</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/16/LightField光场/" rel="next" title="Light Field 光场以及MATLAB光场工具包(LightField ToolBox)的使用说明">
-                <i class="fa fa-chevron-left"></i> Light Field 光场以及MATLAB光场工具包(LightField ToolBox)的使用说明
-              </a>
-            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/09/如何优化Blog主题/" rel="prev" title="学习使用HEXO建立自己的Blog，以及Markdown语言学习">
-                学习使用HEXO建立自己的Blog，以及Markdown语言学习 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/02/16/LightField光场/" rel="prev" title="Light Field 光场以及MATLAB光场工具包(LightField ToolBox)的使用说明">
+                Light Field 光场以及MATLAB光场工具包(LightField ToolBox)的使用说明 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -450,8 +427,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/01/16/Matlab相关问题汇总/"
-           data-title="Matlab相关问题汇总" data-url="http://yoursite.com/2017/01/16/Matlab相关问题汇总/">
+      <div class="ds-thread" data-thread-key="2017/04/11/GPU相关/"
+           data-title="" data-url="http://yoursite.com/2017/04/11/GPU相关/">
       </div>
     
   </div>
@@ -573,7 +550,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Matlab-写入Excel错误"><span class="nav-number">1.</span> <span class="nav-text">Matlab 写入Excel错误</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-number">1.1.</span> <span class="nav-text">问题描述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Matlab设置绘图坐标轴信息"><span class="nav-number">2.</span> <span class="nav-text">Matlab设置绘图坐标轴信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述-1"><span class="nav-number">2.1.</span> <span class="nav-text">问题描述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Matlab显示图片错误"><span class="nav-number">3.</span> <span class="nav-text">Matlab显示图片错误</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述-2"><span class="nav-number">3.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决之道"><span class="nav-number">3.2.</span> <span class="nav-text">解决之道</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#彩蛋"><span class="nav-number">4.</span> <span class="nav-text">彩蛋</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
