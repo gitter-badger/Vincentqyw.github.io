@@ -2,8 +2,10 @@
 
 
 
+  
 
-<html class="theme-next mist">
+
+<html class="theme-next mist use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -76,7 +78,7 @@
     scheme: 'Mist',
     sidebar: {"display":"hide"},
     fancybox: true,
-    motion: false,
+    motion: true,
     duoshuo: {
       userId: 666666,
       author: '秦爷'
@@ -277,9 +279,9 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2016/08/09/AR/" itemprop="url">
+            <a class="post-title-link" href="/2016/08/09/如何优化Blog主题/" itemprop="url">
               
-                <span itemprop="name">AR形势与应用</span>
+                <span itemprop="name">学习使用HEXO建立自己的Blog，以及Markdown语言学习</span>
               
             </a>
         
@@ -314,9 +316,9 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2016/08/09/如何优化Blog主题/" itemprop="url">
+            <a class="post-title-link" href="/2016/08/09/AR/" itemprop="url">
               
-                <span itemprop="name">学习使用HEXO建立自己的Blog，以及Markdown语言学习</span>
+                <span itemprop="name">AR形势与应用</span>
               
             </a>
         
@@ -596,6 +598,10 @@
   
 
   
+  
+    <script type="text/javascript" id="motion.page.archive">
+      $('.archive-year').velocity('transition.slideLeftIn');
+    </script>
   
 
 
