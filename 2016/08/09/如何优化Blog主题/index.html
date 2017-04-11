@@ -69,7 +69,7 @@
 <meta property="og:description" content="Hexo常用语法经常使用的语法很简单，我们完全可以在10min分钟之内建立自己的Blog，后期的优化才是最耗费时间的。好了，直接进入正文。">
 <meta property="og:image" content="http://www.vincentqin.tech/2016/08/09/如何优化Blog主题/wangyiMusic.png">
 <meta property="og:image" content="http://www.vincentqin.tech/2016/08/09/如何优化Blog主题/wangyiMusicCode.png">
-<meta property="og:updated_time" content="2017-04-11T13:13:58.588Z">
+<meta property="og:updated_time" content="2017-04-11T13:25:43.028Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学习使用HEXO建立自己的Blog，以及Markdown语言学习">
 <meta name="twitter:description" content="Hexo常用语法经常使用的语法很简单，我们完全可以在10min分钟之内建立自己的Blog，后期的优化才是最耗费时间的。好了，直接进入正文。">
@@ -102,24 +102,6 @@
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '',
-      xfbml      : true,
-      version    : 'v2.6'
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/zh_Hans/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-
 
 
 
@@ -303,9 +285,6 @@
           
 
           
-            &nbsp; | &nbsp;
-            <div class="fb-like" data-layout="button_count" data-share="true"></div>
-          
 
           
           
@@ -342,7 +321,12 @@
 <li>安装 <a href="https://github.com/timnew/hexo-tag-asset-res" target="_blank" rel="external">hexo-tag-asset-res</a></li>
 </ul>
 <p>打开Git Shell, 在Hexo根目录下, 输入如下代码</p>
-<figure class="highlight plain"><figcaption><span>npm install hexo-tag-asset-res --save```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">- 修改Hexo根目录下_config.yml文件</div><div class="line"></div><div class="line">打开Hexo根目录, 找到_config.yml文件, 用任何一个文本编辑器打开, 找到如下代码</div><div class="line"></div><div class="line">```post_asset_folder: false</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-tag-asset-res --save</div></pre></td></tr></table></figure>
+<ul>
+<li>修改Hexo根目录下_config.yml文件</li>
+</ul>
+<p>打开Hexo根目录, 找到_config.yml文件, 用任何一个文本编辑器打开, 找到如下代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">post_asset_folder: <span class="literal">false</span></div></pre></td></tr></table></figure>
 <ul>
 <li>测试插入
 </li>
@@ -357,11 +341,11 @@
 <li>点击<strong>生成外链播放器</strong><img src="/2016/08/09/如何优化Blog主题/wangyiMusicCode.png" alt="wangyiMusicCode.png" title="">
 </li>
 </ul>
-<p>注意自动播放，以及音乐播放器的大小可调。<table><tr><td bgcolor="LimeGreen"><font color="white">生成外链播放器</font></td></tr></table></p>
+<p>注意自动播放，以及音乐播放器的大小可调。</p>
 <ul>
 <li>在Markdown文档里插入如下代码</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;center&gt;&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=500 height=86 src="http://music.163.com/outchain/player?type=2&amp;id=29722263&amp;auto=0&amp;height=66"&gt;&lt;/iframe&gt;&lt;/center&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;center&gt;&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=500 height=86 src</div><div class="line">="http://music.163.com/outchain/player?type=2&amp;id=29722263&amp;auto=0&amp;height=66"&gt;&lt;/iframe&gt;&lt;/center&gt;</div></pre></td></tr></table></figure>
 <center><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="500" height="86" src="http://music.163.com/outchain/player?type=2&id=29722263&auto=0&height=66"></iframe></center>
 
 
@@ -514,7 +498,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
