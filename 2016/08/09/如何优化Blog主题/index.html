@@ -67,10 +67,13 @@
 <meta property="og:url" content="http://www.vincentqin.tech/2016/08/09/如何优化Blog主题/index.html">
 <meta property="og:site_name" content="Vincent">
 <meta property="og:description" content="Hexo常用语法经常使用的语法很简单，我们完全可以在10min分钟之内建立自己的Blog，后期的优化才是最耗费时间的。好了，直接进入正文。">
-<meta property="og:updated_time" content="2017-04-04T09:16:46.995Z">
+<meta property="og:image" content="http://www.vincentqin.tech/2016/08/09/如何优化Blog主题/wangyiMusic.png">
+<meta property="og:image" content="http://www.vincentqin.tech/2016/08/09/如何优化Blog主题/wangyiMusicCode.png">
+<meta property="og:updated_time" content="2017-04-11T13:13:58.588Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学习使用HEXO建立自己的Blog，以及Markdown语言学习">
 <meta name="twitter:description" content="Hexo常用语法经常使用的语法很简单，我们完全可以在10min分钟之内建立自己的Blog，后期的优化才是最耗费时间的。好了，直接进入正文。">
+<meta name="twitter:image" content="http://www.vincentqin.tech/2016/08/09/如何优化Blog主题/wangyiMusic.png">
 
 
 
@@ -334,6 +337,37 @@
 <h3 id="显示文章阅读数量"><a href="#显示文章阅读数量" class="headerlink" title="显示文章阅读数量"></a>显示文章阅读数量</h3><p>另外：<a href="https://notes.wanghao.work/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html#%E9%85%8D%E7%BD%AELeanCloud" target="_blank" rel="external">显示文章阅读量</a>， 服务主要用了<a href="https://leancloud.cn/" target="_blank" rel="external">LeanCloud</a>服务提供商</p>
 <h3 id="主题设置"><a href="#主题设置" class="headerlink" title="主题设置"></a>主题设置</h3><p><a href="http://www.arao.me/" target="_blank" rel="external">Make the theme more beautiful, recommended</a></p>
 <p>Plus: 我使用的是<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">Next</a>主题</p>
+<h2 id="其他设置"><a href="#其他设置" class="headerlink" title="其他设置"></a>其他设置</h2><h3 id="测试插入图片以及PDF文档"><a href="#测试插入图片以及PDF文档" class="headerlink" title="测试插入图片以及PDF文档"></a>测试插入图片以及PDF文档</h3><p>直接加本地路径是行不通的，至此需要一些插件的帮助。以下我在Github上找到的别人已经做好的一个小公举。</p>
+<ul>
+<li>安装 <a href="https://github.com/timnew/hexo-tag-asset-res" target="_blank" rel="external">hexo-tag-asset-res</a></li>
+</ul>
+<p>打开Git Shell, 在Hexo根目录下, 输入如下代码</p>
+<figure class="highlight plain"><figcaption><span>npm install hexo-tag-asset-res --save```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">- 修改Hexo根目录下_config.yml文件</div><div class="line"></div><div class="line">打开Hexo根目录, 找到_config.yml文件, 用任何一个文本编辑器打开, 找到如下代码</div><div class="line"></div><div class="line">```post_asset_folder: false</div></pre></td></tr></table></figure>
+<ul>
+<li>测试插入
+</li>
+</ul>
+<!--more-->
+<h3 id="在博客中插入网易云音乐"><a href="#在博客中插入网易云音乐" class="headerlink" title="在博客中插入网易云音乐"></a>在博客中插入网易云音乐</h3><p>我们可以利用网易云提供的代码直接在markdown文档里面插入。</p>
+<ul>
+<li>在网页上找到你想要播放的音乐，如下图：<img src="/2016/08/09/如何优化Blog主题/wangyiMusic.png" alt="wangyiMusic.png" title="">
+</li>
+</ul>
+<ul>
+<li>点击<strong>生成外链播放器</strong><img src="/2016/08/09/如何优化Blog主题/wangyiMusicCode.png" alt="wangyiMusicCode.png" title="">
+</li>
+</ul>
+<p>注意自动播放，以及音乐播放器的大小可调。<table><tr><td bgcolor="LimeGreen"><font color="white">生成外链播放器</font></td></tr></table></p>
+<ul>
+<li>在Markdown文档里插入如下代码</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;center&gt;&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=500 height=86 src="http://music.163.com/outchain/player?type=2&amp;id=29722263&amp;auto=0&amp;height=66"&gt;&lt;/iframe&gt;&lt;/center&gt;</div></pre></td></tr></table></figure>
+<center><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="500" height="86" src="http://music.163.com/outchain/player?type=2&id=29722263&auto=0&height=66"></iframe></center>
+
+
+
+
+
 
       
     </div>
@@ -547,7 +581,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo常用语法"><span class="nav-number">1.</span> <span class="nav-text">Hexo常用语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#显示文章阅读数量"><span class="nav-number">1.1.</span> <span class="nav-text">显示文章阅读数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主题设置"><span class="nav-number">1.2.</span> <span class="nav-text">主题设置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo常用语法"><span class="nav-number">1.</span> <span class="nav-text">Hexo常用语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#显示文章阅读数量"><span class="nav-number">1.1.</span> <span class="nav-text">显示文章阅读数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主题设置"><span class="nav-number">1.2.</span> <span class="nav-text">主题设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他设置"><span class="nav-number">2.</span> <span class="nav-text">其他设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试插入图片以及PDF文档"><span class="nav-number">2.1.</span> <span class="nav-text">测试插入图片以及PDF文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在博客中插入网易云音乐"><span class="nav-number">2.2.</span> <span class="nav-text">在博客中插入网易云音乐</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
