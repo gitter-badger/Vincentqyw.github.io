@@ -60,13 +60,14 @@
 
 
 
-<meta name="description" content="这里我汇总了有关光场（Light Field）一些有用的链接以及光场数据的处理过程。目前还在整理中，随时更新。 声明：一切理解都是本人观点，如有错误，还望指出。如需转载请与本人联系，谢谢合作！">
+<meta name="description" content="这里我汇总了有关光场（Light Field）一些有用的链接以及光场数据的处理过程。目前还在整理中，随时更新。声明：一切理解都是本人观点，如有错误，还望指出。如需转载请与本人联系，谢谢合作！">
 <meta name="keywords" content="Light Field,Matlab光场工具包,光场,计算成像">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Light Field 光场以及MATLAB光场工具包(LightField ToolBox)的使用说明">
 <meta property="og:url" content="http://www.vincentqin.tech/2017/02/16/LightField光场/index.html">
 <meta property="og:site_name" content="Vincent">
-<meta property="og:description" content="这里我汇总了有关光场（Light Field）一些有用的链接以及光场数据的处理过程。目前还在整理中，随时更新。 声明：一切理解都是本人观点，如有错误，还望指出。如需转载请与本人联系，谢谢合作！">
+<meta property="og:description" content="这里我汇总了有关光场（Light Field）一些有用的链接以及光场数据的处理过程。目前还在整理中，随时更新。声明：一切理解都是本人观点，如有错误，还望指出。如需转载请与本人联系，谢谢合作！">
+<meta property="og:image" content="http://www.vincentqin.tech/2017/02/16/LightField光场/lf_cover.png">
 <meta property="og:image" content="http://img.blog.csdn.net/20160721220526502">
 <meta property="og:image" content="http://img.blog.csdn.net/20160721220359828">
 <meta property="og:image" content="http://img.blog.csdn.net/20160721221525400">
@@ -83,11 +84,11 @@
 <meta property="og:image" content="http://i4.buimg.com/4851/2b43c8d2cfb3ae03.png">
 <meta property="og:image" content="http://i4.buimg.com/4851/54c189a41878d481.png">
 <meta property="og:image" content="http://i4.buimg.com/4851/e3a132bb65c60ae8.png">
-<meta property="og:updated_time" content="2017-04-08T05:37:18.250Z">
+<meta property="og:updated_time" content="2017-04-11T14:20:42.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Light Field 光场以及MATLAB光场工具包(LightField ToolBox)的使用说明">
-<meta name="twitter:description" content="这里我汇总了有关光场（Light Field）一些有用的链接以及光场数据的处理过程。目前还在整理中，随时更新。 声明：一切理解都是本人观点，如有错误，还望指出。如需转载请与本人联系，谢谢合作！">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20160721220526502">
+<meta name="twitter:description" content="这里我汇总了有关光场（Light Field）一些有用的链接以及光场数据的处理过程。目前还在整理中，随时更新。声明：一切理解都是本人观点，如有错误，还望指出。如需转载请与本人联系，谢谢合作！">
+<meta name="twitter:image" content="http://www.vincentqin.tech/2017/02/16/LightField光场/lf_cover.png">
 
 
 
@@ -324,8 +325,9 @@
       
 
       
-        <p>这里我汇总了有关光场（Light Field）一些有用的链接以及光场数据的处理过程。目前还在整理中，随时更新。</p>
-<p><strong><font color="red">声明</font></strong>：一切理解都是本人观点，如有错误，还望指出。如需转载请与本人联系，谢谢合作！</p>
+        <center><img src="/2017/02/16/LightField光场/lf_cover.png" alt="Magic Leap" title="Magic Leap"></center>
+
+<p>这里我汇总了有关光场（Light Field）一些有用的链接以及光场数据的处理过程。目前还在整理中，随时更新。<br><strong><font color="red">声明</font></strong>：一切理解都是本人观点，如有错误，还望指出。如需转载请与本人联系，谢谢合作！</p>
 <a id="more"></a>
 <h1 id="关于光场的有用的链接"><a href="#关于光场的有用的链接" class="headerlink" title="关于光场的有用的链接"></a><code>关于光场的有用的链接</code></h1><ul>
 <li>深度图+原始彩色图像转化成多视角动态gif，<a href="http://wigglemaker.ugocapeto.com/" target="_blank" rel="external">戳这里</a></li>
@@ -405,6 +407,24 @@
 
 <p>经过以上的步骤我们可以学习到白图像的处理，以及光场图像的处理等操作。当然我没有列出这个工具包所有的功能介绍，大家可以根据需要建立自己工程，对自己的数据进行测试，以上！<br>以下是Demo文件的代码，仅供学习使用。</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div></pre></td><td class="code"><pre><div class="line">clc;</div><div class="line">clear all;</div><div class="line">clc;</div><div class="line"></div><div class="line">addpath(genpath(<span class="string">'Sample_test'</span>));</div><div class="line">addpath(genpath(<span class="string">'LFToolbox0.4'</span>));</div><div class="line"></div><div class="line">LFMatlabPathSetup;</div><div class="line"></div><div class="line"><span class="comment">%% Step1: 解压data.C.0/1/2/3---&gt;white,结果存储在Cameras中</span></div><div class="line">fprintf(<span class="string">'===============Step1: Unpack Lytro Files===============\n\n '</span>);</div><div class="line">LFUtilUnpackLytroArchive(<span class="string">'Sample_test'</span>)</div><div class="line"></div><div class="line"><span class="comment">%% Step2: 包含刚刚解压出来的文件的目录</span></div><div class="line"></div><div class="line">fprintf(<span class="string">'===============Step2: Process WhiteImages===============\n\n'</span>);</div><div class="line"></div><div class="line">WhiteImagesPath=<span class="string">'Sample_test\Cameras\A303134427'</span>; <span class="comment">% LYTRO\A303134427</span></div><div class="line">LFUtilProcessWhiteImages( WhiteImagesPath);</div><div class="line"></div><div class="line"><span class="comment">%% Step3: 解码光场图像.lfp</span></div><div class="line">fprintf(<span class="string">'=====================Step3: Decode LFP===================\n\n'</span>);</div><div class="line">cd(<span class="string">'Sample_test'</span>);  <span class="comment">% 进入Sample_test目录</span></div><div class="line"></div><div class="line">lfpname=<span class="string">'test'</span>;</div><div class="line">InputFname=[<span class="string">'Images\F01\',lfpname,'</span>.lfp<span class="string">'];</span></div><div class="line">[LF, LFMetadata,WhiteImage,CorrectedLensletImage, ...</div><div class="line">WhiteImageMetadata, LensletGridModel, DecodeOptions]...</div><div class="line">                              =  LFLytroDecodeImage(InputFname);</div><div class="line"></div><div class="line">cd('..<span class="string">');</span></div><div class="line"></div><div class="line">imshow(CorrectedLensletImage) %Raw Image</div><div class="line">mkdir(['Results_saving\<span class="string">',lfpname]);</span></div><div class="line">imwrite(CorrectedLensletImage,['Results_saving\<span class="string">',lfpname,'</span>\<span class="string">',lfpname,'</span>.bmp<span class="string">']);</span></div><div class="line">save(['Results_saving\<span class="string">',lfpname,'</span>\<span class="string">',lfpname,'</span>.mat<span class="string">'],'</span>CorrectedLensletImage<span class="string">');</span></div><div class="line"></div><div class="line"></div><div class="line">%% =======================频域滤波================================</div><div class="line">%---Setup for linear filters---</div><div class="line">tic</div><div class="line">% lytro</div><div class="line">LFPaddedSize = [16, 16, 400, 400];</div><div class="line">BW = 0.03;</div><div class="line">FiltOptions = [];</div><div class="line">FiltOptions.Rolloff = 'Butter<span class="string">';</span></div><div class="line">Slope1 = -3/9; % Lorikeet</div><div class="line">Slope2 = 4/9;  % Building</div><div class="line">fprintf('Building <span class="number">4</span>D frequency hyperfan... <span class="string">');</span></div><div class="line">[H, FiltOptionsOut] = LFBuild4DFreqHyperfan( LFPaddedSize, Slope1, Slope2, BW, FiltOptions );</div><div class="line">fprintf('Applying filter<span class="string">');</span></div><div class="line">[LFFilt, FiltOptionsOut] = LFFilt4DFFT( LF, H, FiltOptionsOut );</div><div class="line"></div><div class="line"></div><div class="line">%% =======================颜色校正参数设置==========================                                  </div><div class="line"></div><div class="line">ColMatrix = DecodeOptions.ColourMatrix;</div><div class="line">Gamma=DecodeOptions.Gamma;</div><div class="line">ColBalance=DecodeOptions.ColourBalance;</div><div class="line"></div><div class="line">% 对3280*3280的原始彩色图像进行颜色校正</div><div class="line">ColorCorrectedImage=LFColourCorrect(CorrectedLensletImage, ColMatrix, ColBalance, Gamma);</div><div class="line">imwrite(ColorCorrectedImage,['Results_saving\<span class="string">',lfpname,'</span>\<span class="string">',lfpname,'</span>ColorCorrectedImage.bmp<span class="string">']);</span></div><div class="line">save(['Results_saving\<span class="string">',lfpname,'</span>\<span class="string">',lfpname,'</span>ColorCorrectedImage.mat<span class="string">'],'</span>ColorCorrectedImage<span class="string">')</span></div><div class="line">imshow(ColorCorrectedImage);title('Corrected Lenslet Image<span class="string">');</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">%% 同样是颜色矫正， 为了得到光场数据。得到5-D LFColorCorrectedImage数据</div><div class="line">LFColorCorrectedImage=zeros(size(LF,1),size(LF,2),size(LF,3),size(LF,4),size(LF,5));</div><div class="line">for i=1:size(LF,1)</div><div class="line">    for j=1:size(LF,2)    </div><div class="line">        temp =squeeze(LFFilt(i,j,:,:,1:3));</div><div class="line">        temp = LFColourCorrect(temp, ColMatrix, ColBalance, Gamma);</div><div class="line">        LFColorCorrectedImage(i,j,:,:,1:3)=temp;    </div><div class="line">        imshow(temp);</div><div class="line">        pause(0.1)</div><div class="line">    end</div><div class="line">end</div><div class="line">LFColorCorrectedImage(:,:,:,:,4)=LF(:,:,:,:,4);</div><div class="line">save(['Save Scenes Here!!\<span class="string">',lfpname,'</span>\<span class="string">',lfpname,'</span>RawLFColorCorrectedImage.mat<span class="string">'],'</span>LFColorCorrectedImage<span class="string">');% very important</span></div><div class="line">addpath('LFDecodeRequried<span class="string">');</span></div><div class="line"></div><div class="line">%--------------------------------------------------------------------------------</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="Lytro官网可视化工具"><a href="#Lytro官网可视化工具" class="headerlink" title="Lytro官网可视化工具"></a>Lytro官网可视化工具</h2><p>谁让人家Lytro不开源呢，人家自己做的Demo还不错。通过鼠标就可以对以下图像进行<strong>重聚焦，变化视角，以及缩放</strong>等操作。话不多说，上图！</p>
+<center><iframe width="600" height="434" src="https://pictures.lytro.com/jmoskovic/pictures/942107/embed" frameborder="0" allowfullscreen scrolling="no"></iframe></center>
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="600" height="86" src="http://music.163.com/outchain/player?type=2&id=33538955&auto=0&height=66"></iframe>
+
+
+
+
+
+
+
+
+
+
+
+
 
       
     </div>
@@ -463,8 +483,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/11/中国计算机学会推荐国际会议及期刊目录/" rel="next" title="中国计算机学会推荐国际会议及期刊目录">
-                <i class="fa fa-chevron-left"></i> 中国计算机学会推荐国际会议及期刊目录
+              <a href="/2017/04/11/中国计算机学会推荐国际会议及期刊目录/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -622,7 +642,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于光场的有用的链接"><span class="nav-number">1.</span> <span class="nav-text">关于光场的有用的链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#光场数据"><span class="nav-number">2.</span> <span class="nav-text">光场数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取-LFP-or-LFR-原文件"><span class="nav-number">2.1.</span> <span class="nav-text">获取.LFP(or .LFR)原文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Matlab-Light-Field-ToolBox-光场工具箱-的使用"><span class="nav-number">2.2.</span> <span class="nav-text">Matlab Light Field ToolBox(光场工具箱)的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载光场工具包（LFToolBox）"><span class="nav-number">2.2.1.</span> <span class="nav-text">下载光场工具包（LFToolBox）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前期准备"><span class="nav-number">2.2.2.</span> <span class="nav-text">前期准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试开始"><span class="nav-number">2.2.3.</span> <span class="nav-text">测试开始</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#处理白图像"><span class="nav-number">2.2.3.1.</span> <span class="nav-text">处理白图像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解码LFP文件"><span class="nav-number">2.2.3.2.</span> <span class="nav-text">解码LFP文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#频域滤波以及颜色校正"><span class="nav-number">2.2.3.3.</span> <span class="nav-text">频域滤波以及颜色校正</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于光场的有用的链接"><span class="nav-number">1.</span> <span class="nav-text">关于光场的有用的链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#光场数据"><span class="nav-number">2.</span> <span class="nav-text">光场数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取-LFP-or-LFR-原文件"><span class="nav-number">2.1.</span> <span class="nav-text">获取.LFP(or .LFR)原文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Matlab-Light-Field-ToolBox-光场工具箱-的使用"><span class="nav-number">2.2.</span> <span class="nav-text">Matlab Light Field ToolBox(光场工具箱)的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载光场工具包（LFToolBox）"><span class="nav-number">2.2.1.</span> <span class="nav-text">下载光场工具包（LFToolBox）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前期准备"><span class="nav-number">2.2.2.</span> <span class="nav-text">前期准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试开始"><span class="nav-number">2.2.3.</span> <span class="nav-text">测试开始</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#处理白图像"><span class="nav-number">2.2.3.1.</span> <span class="nav-text">处理白图像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解码LFP文件"><span class="nav-number">2.2.3.2.</span> <span class="nav-text">解码LFP文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#频域滤波以及颜色校正"><span class="nav-number">2.2.3.3.</span> <span class="nav-text">频域滤波以及颜色校正</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lytro官网可视化工具"><span class="nav-number">2.3.</span> <span class="nav-text">Lytro官网可视化工具</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
