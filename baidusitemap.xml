@@ -4,6 +4,29 @@
 
     
   <url>
+    <loc>http://www.vincentqin.tech/2017/02/16/LightField%E5%85%89%E5%9C%BA/</loc>
+    <lastmod>2017-04-12T14:51:14.121Z</lastmod>
+    <data>
+        <display>
+        <title>Light Field 光场以及MATLAB光场工具包(LightField ToolBox)的使用说明</title>
+        <pubTime>2017-02-16T02:45:54.000Z</pubTime>
+        
+        <tag>Light Field</tag>
+         
+        <tag>Matlab光场工具包</tag>
+         
+        <tag>光场</tag>
+         
+        <tag>计算成像</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.vincentqin.tech/2016/08/08/Markdown%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2017-04-11T15:09:34.243Z</lastmod>
     <data>
@@ -65,29 +88,6 @@
         <pubTime>2017-04-11T12:26:12.000Z</pubTime>
         
         <tag>CCF国际会议</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.vincentqin.tech/2017/02/16/LightField%E5%85%89%E5%9C%BA/</loc>
-    <lastmod>2017-04-11T14:20:42.285Z</lastmod>
-    <data>
-        <display>
-        <title>Light Field 光场以及MATLAB光场工具包(LightField ToolBox)的使用说明</title>
-        <pubTime>2017-02-16T02:45:54.000Z</pubTime>
-        
-        <tag>Light Field</tag>
-         
-        <tag>Matlab光场工具包</tag>
-         
-        <tag>光场</tag>
-         
-        <tag>计算成像</tag>
          
          
            
