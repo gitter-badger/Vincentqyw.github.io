@@ -1705,7 +1705,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff2159;
+  background: #ff1395;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2611,6 +2611,11 @@ pre .javascript .function {
 .page-post-detail .comments {
   overflow: hidden;
 }
+.header-inner,
+.container .main-inner,
+.footer-inner {
+  background: #fff;
+}
 @media (max-width: 767px) {
   .header-inner,
   .container .main-inner,
@@ -2620,7 +2625,6 @@ pre .javascript .function {
 }
 embed {
   display: block;
-  background: #fff;
   margin: 0px auto 25px auto;
 }
 .custom-logo .site-meta-headline {
