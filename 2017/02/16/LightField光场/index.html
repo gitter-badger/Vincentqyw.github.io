@@ -428,27 +428,18 @@
 <a id="more"></a>
 <h2 id="关于光场常用的链接"><a href="#关于光场常用的链接" class="headerlink" title="关于光场常用的链接"></a>关于光场常用的链接</h2><ul>
 <li><a href="http://lightfield.stanford.edu/lfs.html" target="_blank" rel="external">斯坦福大学光场数据库</a>：老牌斯坦福大学计算机图形实验室(Computer Graphics Laboratory)提供的，该数据库所在网站还提供了光场的采集设备，相机标定以及可视化工具。</li>
-<li>斯坦福大学计算机图形实验室的<a href="http://graphics.stanford.edu/~levoy/" target="_blank" rel="external">Marc Levoy教授</a>做的动画仿真，利于理解。<a href="https://graphics.stanford.edu/courses/cs178/applets/applets.html" target="_blank" rel="external">Flash applets on some technical aspects of photography</a>，这里面详细地介绍了相机的各种参数变化对应的光路图的变化，强烈推荐。</li>
-</ul>
-<ul>
-<li><a href="http://cseweb.ucsd.edu/~ravir/" target="_blank" rel="external"><strong>Ravi Ramamoorthi</strong></a>教授主页，他是一位计算成像，计算机视觉领域的大神。他所在组发表了很多高质量的文章。</li>
-<li><p><a href="http://cseweb.ucsd.edu/~viscomp/projects/LF/" target="_blank" rel="external">光场实验室网站</a>，研究光场领域，隶属于<strong>Ravi Ramamoorthi</strong>教授。这里将是研究光场领域深度图像获取，三维重建以及去除高光等领域研究者的福音。</p>
-</li>
-<li><p>光场相机的缔造者以及Lytro公司的创始人<a href="http://www.eecs.berkeley.edu/Faculty/Homepages/yirenng.html/" target="_blank" rel="external">Ren Ng</a>。看这里是其创建的<a href="https://illum.lytro.com" target="_blank" rel="external">Lytro公司</a>的主页；最初Lytro的最大卖点在于<code>先拍照后对焦</code>，可是买账的人并不多；购买者多数是摄影爱好者以及科研机构。最近Lytro公司开始进军VR以及AR领域，看了下其设备，怎一个大字了得（Ps: 话说Ng为何去教书了？）</p>
-</li>
-</ul>
-<ul>
-<li>Lytro<a href="http://blog.lytro.com/" target="_blank" rel="external">论坛</a>，这里有关于Lytro公司以及光场相机最新的应用，时常关注不至于落后于时代。</li>
-</ul>
-<ul>
+<li>斯坦福大学计算机图形实验室的<a href="http://graphics.stanford.edu/~levoy/" target="_blank" rel="external">Marc Levoy</a>教授做的动画仿真，利于理解。<a href="https://graphics.stanford.edu/courses/cs178/applets/applets.html" target="_blank" rel="external">Flash applets on some technical aspects of photography</a>，这里面详细地介绍了相机的各种参数变化对应的光路图的变化，强烈推荐。</li>
+<li><a href="http://hci-lightfield.iwr.uni-heidelberg.de/" target="_blank" rel="external">HCI光场数据集</a>，千呼万唤始出来，有好长一段时间这个数据集突然消失了（可能是在维护数据）。如今以新的面貌重现天日，真的让人喜出望外。对于其数据集，HCI提供的<a href="https://github.com/lightfield-analysis/matlab-tools" target="_blank" rel="external">解码工具</a>；这是要建立与<a href="#Middlebury">Middlebury</a>齐名的数据集（包括评价排名）的节奏啊！（ps:日后整理，很感兴趣）</li>
+<li><a href="http://cseweb.ucsd.edu/~ravir/" target="_blank" rel="external"><strong>Ravi Ramamoorthi</strong></a>教授主页，一位计算成像，计算机视觉领域的大神，他所在组发表了很多高质量的文章，详情可参考他的主页。</li>
+<li><a href="http://cseweb.ucsd.edu/~viscomp/projects/LF/" target="_blank" rel="external">光场实验室网站</a>，研究光场领域，隶属于<strong>Ravi Ramamoorthi</strong>教授。这里将是研究光场领域深度图像获取，三维重建以及去除高光等领域研究者的福音。</li>
+<li>光场相机的缔造者以及Lytro公司的创始人<a href="http://www.eecs.berkeley.edu/Faculty/Homepages/yirenng.html/" target="_blank" rel="external">Ren Ng</a>。看这里是其创建的<a href="https://illum.lytro.com" target="_blank" rel="external">Lytro公司</a>的主页；最初Lytro的最大卖点在于<strong>先拍照后对焦</strong>，可是买账的人并不多；购买者多数是摄影爱好者以及科研机构。最近Lytro公司开始进军VR以及AR领域，看了下其设备，怎一个大字了得（Ps: 话说Ng为何去教书了？）</li>
+<li><a href="http://blog.lytro.com/" target="_blank" rel="external">Lytro论坛</a>，这里有关于Lytro公司以及光场相机最新的应用，时常关注不至于落后于时代，不至于被世界残忍的抛弃。</li>
 <li>MATLAB<a href="http://www.mathworks.com/matlabcentral/fileexchange/49683-light-field-toolbox-v0-4" target="_blank" rel="external">光场工具包</a>，这个工具包从事光场研究的科研人员的福利，后文中我将详细的介绍这个工具包的使用方法。</li>
-<li><strong>LytroMeltdown</strong>，一位布拉格大学(Charles University)的学生拆解Lytro 1.0的<a href="http://optics.miloush.net/lytro/Default.aspx" target="_blank" rel="external">资料</a>，如果你想对光场相机的内部结构有更加深入的了解的话，这个网址有丰富的介绍。（目前仅有Lytro一代的拆解并没有ILLUM的拆解，原因是过于昂贵，作者买不起）</li>
-<li><p>cocolib<a href="http://sourceforge.net/p/cocolib/home/Home/" target="_blank" rel="external">光场工具套件</a>，这个套件实际上是一个处理凸优化问题的库，既可以用命令行操作也可Matlab界面操作。该库实现了目前集中常用的算法诸如： inverse problems，基于总变分最小化的图像分割以及矢量多标记交易成本函数；当然最重要的还有对于光场图像的分析函数套件（基于HCI发表的深度估计论文）。</p>
-</li>
-<li><p>深度图+原始彩色图像转化成多视角动态gif，<a href="http://wigglemaker.ugocapeto.com/" target="_blank" rel="external">戳这里</a></p>
-</li>
-<li><p>Deep learning: <a href="https://github.com/iro-cp/FCRN-DepthPrediction" target="_blank" rel="external">Depth Estimation</a></p>
-</li>
+<li><a href="http://optics.miloush.net/lytro/Default.aspx" target="_blank" rel="external"><strong>LytroMeltdown</strong></a>，一位布拉格大学(Charles University)的学生拆解Lytro 1.0的资料，如果你想对光场相机的内部结构有更加深入的了解的话，这个网址有丰富的介绍。（目前仅有Lytro一代的拆解并没有ILLUM的拆解，原因是过于昂贵，作者买不起）</li>
+<li>cocolib<a href="http://sourceforge.net/p/cocolib/home/Home/" target="_blank" rel="external">光场工具套件</a>，这个套件实际上是一个处理凸优化问题的库，既可以用命令行操作也可Matlab界面操作。该库实现了目前集中常用的算法诸如： inverse problems，基于总变分最小化的图像分割以及矢量多标记交易成本函数；当然最重要的还有对于光场图像的分析函数套件（基于HCI发表的深度估计论文）。</li>
+<li>著名的<a href="http://vision.middlebury.edu/stereo/" target="_blank" rel="external">Middlebury</a><span id="Middlebury">数据集</span>：来提供了Benchmark(左右视角的纹理图以及对应的GT深度图像)，各种算法的性能对比， 在双目深度估计领域属于最为权威的评估标准。</li>
+<li>Deep learning: <a href="https://github.com/iro-cp/FCRN-DepthPrediction" target="_blank" rel="external">Depth Estimation</a>，目前基于双目，多目以及利用光场进行深度估计的算法已有很多；有些研究者利用当前比较火热的深度学习的策略对<strong>单幅图像</strong>进行深度图像的提取；我本来想跑跑人家代码，可以目前还没时间搞这些。</li>
+<li>深度图+原始彩色图像转化成多视角动态gif，<a href="http://wigglemaker.ugocapeto.com/" target="_blank" rel="external">戳这里</a>，这算是深度图像的一个小小的应用。</li>
 </ul>
 <h2 id="光场相机"><a href="#光场相机" class="headerlink" title="光场相机"></a>光场相机</h2><p>大家在刚刚入手光场领域的时候会用到现在的消费者用的手持光场相机Lytro或者ILLUM，如图（实验室的设备，我可买不起ILLUM）：<br><img src="http://img.blog.csdn.net/20160721220526502" alt="Lytro相机" width="100%"></p>
 <center>Lytro</center><br><br><br><img src="http://img.blog.csdn.net/20160721220359828" alt="ILLUM相机" width="100%"><br><center>Illum</center>
