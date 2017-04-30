@@ -63,22 +63,23 @@
 
 
 
-<meta name="description" content="一个好的数据集是做实验的必要条件  Wanner光场数据集目前光场数据集有如下几种主流的数据集：  斯坦福大学光场数据集 Wanner(HCI)数据集 4D Light Field Dataset(HCI新数据集)  下面仅对Wanner数据集进行讨论。学习光场的同学应该很熟悉Wanner提供的数据集共有10个场景，分别是：  Buddha Buddha2 Couple Cube Mona Me">
+<meta name="description" content="一个好的数据集是做实验的必要条件">
 <meta name="keywords" content="Light Field,光场,计算成像,点云Point Cloud">
 <meta property="og:type" content="article">
 <meta property="og:title" content="初试HCI光场数据集">
 <meta property="og:url" content="http://www.vincentqin.tech/2017/04/30/初试HCI光场数据集/index.html">
 <meta property="og:site_name" content="Vincent">
-<meta property="og:description" content="一个好的数据集是做实验的必要条件  Wanner光场数据集目前光场数据集有如下几种主流的数据集：  斯坦福大学光场数据集 Wanner(HCI)数据集 4D Light Field Dataset(HCI新数据集)  下面仅对Wanner数据集进行讨论。学习光场的同学应该很熟悉Wanner提供的数据集共有10个场景，分别是：  Buddha Buddha2 Couple Cube Mona Me">
+<meta property="og:description" content="一个好的数据集是做实验的必要条件">
+<meta property="og:image" content="http://www.vincentqin.tech/2017/04/30/初试HCI光场数据集/face.png">
 <meta property="og:image" content="http://www.vincentqin.tech/2017/04/30/初试HCI光场数据集/Buddha2Hd5.gif">
 <meta property="og:image" content="http://www.vincentqin.tech/2017/04/30/初试HCI光场数据集/dataset_1.gif">
 <meta property="og:image" content="http://www.vincentqin.tech/2017/04/30/初试HCI光场数据集/dataset_2.gif">
 <meta property="og:image" content="http://www.vincentqin.tech/2017/04/30/初试HCI光场数据集/PCs.gif">
-<meta property="og:updated_time" content="2017-04-30T10:30:17.724Z">
+<meta property="og:updated_time" content="2017-04-30T10:46:05.130Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初试HCI光场数据集">
-<meta name="twitter:description" content="一个好的数据集是做实验的必要条件  Wanner光场数据集目前光场数据集有如下几种主流的数据集：  斯坦福大学光场数据集 Wanner(HCI)数据集 4D Light Field Dataset(HCI新数据集)  下面仅对Wanner数据集进行讨论。学习光场的同学应该很熟悉Wanner提供的数据集共有10个场景，分别是：  Buddha Buddha2 Couple Cube Mona Me">
-<meta name="twitter:image" content="http://www.vincentqin.tech/2017/04/30/初试HCI光场数据集/Buddha2Hd5.gif">
+<meta name="twitter:description" content="一个好的数据集是做实验的必要条件">
+<meta name="twitter:image" content="http://www.vincentqin.tech/2017/04/30/初试HCI光场数据集/face.png">
 
 
 
@@ -355,7 +356,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-04-30T18:30:17+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2017-04-30T18:46:05+08:00">
                 2017-04-30
               </time>
             
@@ -409,9 +410,12 @@
       
 
       
-        <blockquote>
+        <center><img src="/2017/04/30/初试HCI光场数据集/face.png" alt="帅不帅" title="帅不帅"></center>
+
+<blockquote>
 <p>一个好的数据集是做实验的必要条件</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="Wanner光场数据集"><a href="#Wanner光场数据集" class="headerlink" title="Wanner光场数据集"></a>Wanner光场数据集</h2><p>目前光场数据集有如下几种主流的数据集：</p>
 <ol>
 <li><a href="http://lightfield.stanford.edu/lfs.html" target="_blank" rel="external">斯坦福大学光场数据集</a></li>
@@ -431,7 +435,7 @@
 <li>Horses</li>
 <li>rx_watch</li>
 </ol>
-<p>其中，1-8为仿真场景，9-10是由Raytrix拍摄的场景。他们的文件后缀为 .h5, 格式是HDF5，这是一种文件组织格式，可以很好的将数据组织在一起，具体不做展开。MATLAB 提供了一系列相应的读取该文件的函数，如：h5disp，hdf5info(新版本用h5info)，==hdf5read==等函数，如利用h5disp就可以得到HDF5文件的内容信息，如下图：</p>
+<p>其中，1-8为仿真场景，9-10是由Raytrix拍摄的场景。他们的文件后缀为 .h5, 格式是HDF5，这是一种文件组织格式，可以很好的将数据组织在一起，具体不做展开。MATLAB 提供了一系列相应的读取该文件的函数，如：h5disp，hdf5info(新版本用h5info)，hdf5read等函数，如利用h5disp就可以得到HDF5文件的内容信息，如下图：</p>
 <center><img src="/2017/04/30/初试HCI光场数据集/Buddha2Hd5.gif" alt="Buddha2" title="Buddha2"></center>
 
 <p>以下给出解码HDF5文件得到子孔径图像以及重排图像的代码：</p>
@@ -462,7 +466,7 @@
 </li>
 <li>16组additional的每个视角的Ground Truth Depth图像（pfm格式）</li>
 </ul>
-<h3 id="数据集下载"><a href="#数据集下载" class="headerlink" title="数据集下载"></a>数据集下载</h3><p>开始下载吧！在<a href="http://hci-lightfield.iwr.uni-heidelberg.de/" target="_blank" rel="external">该页面</a>的==get the data==处填写自己的邮箱，然后点击==request download links==。接下来你的邮箱里就会出现这个数据集的下载链接，链接有点多，你可以选择性的下载或者全部下载。方便起见，我把邮件中提供的链接贴在了下面：</p>
+<h3 id="数据集下载"><a href="#数据集下载" class="headerlink" title="数据集下载"></a>数据集下载</h3><p>开始下载吧！在<a href="http://hci-lightfield.iwr.uni-heidelberg.de/" target="_blank" rel="external">该页面</a>的<code>get the data</code>处填写自己的邮箱，然后点击<code>request download links</code>。接下来你的邮箱里就会出现这个数据集的下载链接，链接有点多，你可以选择性的下载或者全部下载。方便起见，我把邮件中提供的链接贴在了下面：</p>
 <ul>
 <li><p>Benchmark package with the 12 benchmark scenes:<br><a href="http://lightfield-analysis.net/benchmark/downloads/benchmark.zip" target="_blank" rel="external">http://lightfield-analysis.net/benchmark/downloads/benchmark.zip</a></p>
 </li>
@@ -483,9 +487,9 @@
 </ul>
 <h3 id="数据集初体验"><a href="#数据集初体验" class="headerlink" title="数据集初体验"></a>数据集初体验</h3><h4 id="测试代码下载"><a href="#测试代码下载" class="headerlink" title="测试代码下载"></a>测试代码下载</h4><p>在其官方给出的<a href="https://github.com/lightfield-analysis/matlab-tools" target="_blank" rel="external">代码页面</a>下载测试程序，下载完毕后将convert<em>.m以及lib文件夹其放置在与上述数据集同级目录。例如：TEST目录下同时包括：convert</em>.m 以及 lib/， 同样也包含 additional/, stratified/, test/, 以及 training/。</p>
 <h4 id="生成LF-mat"><a href="#生成LF-mat" class="headerlink" title="生成LF.mat"></a>生成LF.mat</h4><ul>
-<li>convertAll. 对于每一个场景都声称一个==LF.mat==文件</li>
+<li>convertAll. 对于每一个场景都声称一个<code>LF.mat</code>文件</li>
 </ul>
-<p>如果我们仅仅下载了几个场景我们可以利用如下函数得到相应的==LF.mat==</p>
+<p>如果我们仅仅下载了几个场景我们可以利用如下函数得到相应的<code>LF.mat</code></p>
 <ul>
 <li>convertBlenderTo5D(‘FOLDER’)</li>
 </ul>
@@ -496,13 +500,13 @@
 <li>评价掩膜（mask）</li>
 <li>中心视角图像</li>
 </ul>
-<p>==注意==： 生成LF.mat的过程用到的参数通过加载相应文件夹下parameters.cfg得到，并将其存储在了LF.parameters中；H变换矩阵存储在了LF.H中（可以参考论文<a href="http://www-personal.acfr.usyd.edu.au/ddan1654/PlenCal.pdf" target="_blank" rel="external">“Decoding, Calibration and Rectification for Lenselet-Based Plenoptic Cameras” </a>）；两个平面的距离存储在LF.f, 单位 [mm]； 相机焦距：LF.parameters.intrinsics.focal_length_mm.</p>
+<p><code>注意</code> 生成LF.mat的过程用到的参数通过加载相应文件夹下parameters.cfg得到，并将其存储在了LF.parameters中；H变换矩阵存储在了LF.H中（可以参考论文<a href="http://www-personal.acfr.usyd.edu.au/ddan1654/PlenCal.pdf" target="_blank" rel="external">“Decoding, Calibration and Rectification for Lenselet-Based Plenoptic Cameras” </a>）；两个平面的距离存储在LF.f, 单位 [mm]； 相机焦距：LF.parameters.intrinsics.focal_length_mm.</p>
 <h4 id="生成点云（Point-Cloud）"><a href="#生成点云（Point-Cloud）" class="headerlink" title="生成点云（Point Cloud）"></a>生成点云（Point Cloud）</h4><p>接下来我以<code>antinous</code>为例子展示如何利用深度图像（官方利用视差）与纹理图像生成点云。</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">filename=<span class="string">'antinous'</span>;</div><div class="line">addpath(<span class="string">'lib'</span>);</div><div class="line"><span class="comment">% 得到antinous的LF.mat</span></div><div class="line">convertBlenderTo5D([<span class="string">'additional/'</span>,filename])</div><div class="line">load([<span class="string">'additional/'</span>,filename,<span class="string">'/LF.mat'</span>]);</div><div class="line"></div><div class="line">img=LF.LF(<span class="number">5</span>,<span class="number">5</span>,:,:,:); <span class="comment">%中心视角，用于着色</span></div><div class="line">r=img(:,:,<span class="number">1</span>);</div><div class="line">g=img(:,:,<span class="number">2</span>);</div><div class="line">b=img(:,:,<span class="number">3</span>);</div><div class="line"></div><div class="line"><span class="comment">% 深度图读取</span></div><div class="line">d=pfmread([<span class="string">'additional_depth_disp_all_views\',filename,'</span>\gt_disp_lowres_Cam025.pfm<span class="string">']);</span></div><div class="line">d=mat2gray(d);</div><div class="line"></div><div class="line">mkdir(['PointClouds-color/<span class="string">',filename]);建立一个文件夹存储图片</span></div><div class="line"></div><div class="line">[ X,Y,Z ] = getPointcloud(LF,'disp<span class="string">',d);</span></div><div class="line">ptCloud1 = pointCloud([X(:),Y(:),Z(:)],'color<span class="string">',[r(:) g(:) b(:)]);</span></div><div class="line"></div><div class="line">h1=figure(1);</div><div class="line">pcshow(ptCloud1);</div><div class="line"></div><div class="line">axis off</div><div class="line">set(gcf,'color<span class="string">',[1 1 1])</span></div><div class="line">set(gcf,'Position<span class="string">',[800,300,600,600], '</span>color<span class="string">','</span>w<span class="string">')</span></div><div class="line">view(90.6338,  88.5605);</div><div class="line">zoom(1.2)</div></pre></td></tr></table></figure>
 <p>结果如下所示：</p>
 <center><img src="/2017/04/30/初试HCI光场数据集/PCs.gif" alt="点云" title="点云"></center>
 
-<p>==注意==：生成点云这一步，低版本的MATLAB（如R2014a）由于没有加入相应的函数所以不能够生成点云，高版本（R2016b）可以正常生成。</p>
+<p><code>注意</code>:生成点云这一步，低版本的MATLAB（如R2014a）由于没有加入相应的函数所以不能够生成点云，高版本（R2016b）可以正常生成。</p>
 
       
     </div>
