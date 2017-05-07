@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://www.vincentqin.tech/2016/08/09/%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96Blog%E4%B8%BB%E9%A2%98/</loc>
+    <lastmod>2017-05-07T13:27:14.663Z</lastmod>
+    <data>
+        <display>
+        <title>HEXO建站备忘录</title>
+        <pubTime>2016-08-09T04:37:42.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>博客</tag>
+         
+        <tag>多说</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.vincentqin.tech/2017/05/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%BF%AE%E7%82%BC%E6%89%8B%E5%86%8C/</loc>
+    <lastmod>2017-05-07T12:40:37.786Z</lastmod>
+    <data>
+        <display>
+        <title>机器学习修炼手册</title>
+        <pubTime>2017-05-07T12:02:56.000Z</pubTime>
+        
+        <tag>机器学习</tag>
+         
+        <tag>Machine Learning</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.vincentqin.tech/2017/04/16/%E5%AE%9E%E4%B9%A0/</loc>
     <lastmod>2017-05-07T08:40:10.519Z</lastmod>
     <data>
@@ -79,27 +119,6 @@
         <pubTime>2017-04-11T12:26:12.000Z</pubTime>
         
         <tag>CCF国际会议</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.vincentqin.tech/2016/08/09/%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96Blog%E4%B8%BB%E9%A2%98/</loc>
-    <lastmod>2017-05-02T11:59:02.166Z</lastmod>
-    <data>
-        <display>
-        <title>学习使用HEXO建立自己的Blog，以及Markdown语言学习</title>
-        <pubTime>2016-08-09T04:37:42.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>博客</tag>
-         
-        <tag>多说</tag>
          
          
            
