@@ -72,7 +72,7 @@
 <meta property="og:image" content="http://www.vincentqin.tech/2017/04/30/初试HCI光场数据集/Buddha2Hd5.gif">
 <meta property="og:image" content="http://www.vincentqin.tech/2017/04/30/初试HCI光场数据集/scenes.png">
 <meta property="og:image" content="http://www.vincentqin.tech/2017/04/30/初试HCI光场数据集/PCs.gif">
-<meta property="og:updated_time" content="2017-05-02T10:04:37.161Z">
+<meta property="og:updated_time" content="2017-05-07T06:58:21.667Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初试HCI光场数据集">
 <meta name="twitter:description" content="好的数据集是做出漂亮实验的必要条件">
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-05-02T18:04:37+08:00">
-                2017-05-02
+              <time title="更新于" itemprop="dateModified" datetime="2017-05-07T14:58:21+08:00">
+                2017-05-07
               </time>
             
           </span>
@@ -409,11 +409,10 @@
       
         <center><img src="/2017/04/30/初试HCI光场数据集/face.png" alt="帅不帅" title="帅不帅"></center>
 
-<blockquote>
-<p>好的数据集是做出漂亮实验的必要条件</p>
-</blockquote>
+<p id="div-border-left-green"> 好的数据集是做出漂亮实验的必要条件</p>
+
 <a id="more"></a>
-<p><strong><font color="red">声明</font></strong>：一切理解都是本人观点，如有错误，还望指出。如需转载请与本人联系，谢谢合作！邮箱：qin123yw@163.com</p>
+<p><span id="inline-red">声明</span>：一切理解都是本人观点，如有错误，还望指出。如需转载请与本人联系，谢谢合作！邮箱：<a href="mailto:qin123yw@163.com" target="_blank" rel="external">qin123yw@163.com</a></p>
 <h2 id="Wanner光场数据集"><a href="#Wanner光场数据集" class="headerlink" title="Wanner光场数据集"></a>Wanner光场数据集</h2><p>目前光场数据集有如下几种主流的数据集：</p>
 <ol>
 <li><a href="http://lightfield.stanford.edu/lfs.html" target="_blank" rel="external">斯坦福大学光场数据集</a></li>
@@ -439,9 +438,9 @@
 <p>以下给出解码HDF5文件得到子孔径图像以及重排图像的代码：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">input_file       = <span class="string">'Buddha2.h5'</span>; <span class="comment">% file name</span></div><div class="line">input_folder     = <span class="string">''</span>;           <span class="comment">% your datasets folder</span></div><div class="line"></div><div class="line">[pathstr,name,ext] = fileparts([input_folder <span class="string">'/'</span> input_file]);</div><div class="line">file_path=[pathstr,name,ext];</div><div class="line"></div><div class="line">hinfo_data = hdf5info(file_path);</div><div class="line"><span class="keyword">if</span> strcmp(file_path,<span class="string">'Cube'</span>) || strcmp(file_path,<span class="string">'Couple'</span>)</div><div class="line">	data = hdf5read(hinfo_data.GroupHierarchy.Datasets(<span class="number">3</span>));</div><div class="line"><span class="keyword">else</span></div><div class="line">	data = hdf5read(hinfo_data.GroupHierarchy.Datasets(<span class="number">2</span>));</div><div class="line"><span class="keyword">end</span></div><div class="line">data = <span class="built_in">permute</span>(data, [<span class="number">3</span> <span class="number">2</span> <span class="number">1</span> <span class="number">5</span> <span class="number">4</span>]);</div><div class="line">data = im2double(data(:, :, :, :, <span class="keyword">end</span>:<span class="number">-1</span>:<span class="number">1</span>));</div><div class="line"><span class="comment">% parameters from input</span></div><div class="line">UV_diameter = <span class="built_in">size</span>(data, <span class="number">4</span>);                   <span class="comment">% angular resolution</span></div><div class="line">UV_radius    = <span class="built_in">floor</span>(UV_diameter/<span class="number">2</span>);           <span class="comment">% half angular resolution</span></div><div class="line">h                  = <span class="built_in">size</span>(data, <span class="number">1</span>);            <span class="comment">% spatial image height</span></div><div class="line">w                  = <span class="built_in">size</span>(data, <span class="number">2</span>);            <span class="comment">% spatial image width</span></div><div class="line">y_size=h;</div><div class="line">x_size=w;</div><div class="line">UV_size=UV_diameter^<span class="number">2</span>;</div><div class="line">LF_y_size   = h * UV_diameter;                 <span class="comment">% total image height</span></div><div class="line">LF_x_size   = w * UV_diameter;                 <span class="comment">% total image width</span></div><div class="line">LF_Remap    = <span class="built_in">reshape</span>(<span class="built_in">permute</span>(data, ...</div><div class="line">	   [<span class="number">4</span> <span class="number">1</span> <span class="number">5</span> <span class="number">2</span> <span class="number">3</span>]), [LF_y_size LF_x_size <span class="number">3</span>]); <span class="comment">% the remap image</span></div><div class="line">IM_Pinhole = data(:,:,:,UV_radius+<span class="number">1</span>,UV_radius+<span class="number">1</span>); <span class="comment">% the pinhole image</span></div></pre></td></tr></table></figure>
 <p>经过以上步骤可以得到相应的中心视角图像以及Remap（重排）之后的图像，从而进一步方便接下来的工作，例如基于该数据集的深度图像估计算法估计。</p>
-<h2 id="HCI-4D光场数据集-4D-Light-Field-Benchmark"><a href="#HCI-4D光场数据集-4D-Light-Field-Benchmark" class="headerlink" title="HCI 4D光场数据集(4D Light Field Benchmark)"></a>HCI 4D光场数据集(4D Light Field Benchmark)</h2><blockquote>
-<p>The 4D Light Field Benchmark was jointly created by the University of Konstanz and the HCI at Heidelberg University.</p>
-</blockquote>
+<h2 id="HCI-4D光场数据集-4D-Light-Field-Benchmark"><a href="#HCI-4D光场数据集-4D-Light-Field-Benchmark" class="headerlink" title="HCI 4D光场数据集(4D Light Field Benchmark)"></a>HCI 4D光场数据集(4D Light Field Benchmark)</h2><p id="div-border-left-red">The 4D Light Field Benchmark was jointly created by the University of Konstanz and the HCI at Heidelberg University.</p>
+
+
 <p>上周整理上一篇博客的时候，想再次查看HCI数据集是否更新，结果惊喜地看到它竟然更新了！激动之余，就连夜把数据以及代码下载了下来，看看这个数据集的庐山真面目。</p>
 <h3 id="数据集概况"><a href="#数据集概况" class="headerlink" title="数据集概况"></a>数据集概况</h3><p>这个数据集共有4大类：</p>
 <ul>
@@ -547,13 +546,13 @@
 <li>评价掩膜（mask）</li>
 <li>中心视角图像</li>
 </ul>
-<p><strong><font color="red">注意</font></strong>：生成LF.mat的过程用到的参数通过加载相应文件夹下parameters.cfg得到，并将其存储在了LF.parameters中；H变换矩阵存储在了LF.H中（可以参考论文<a href="http://www-personal.acfr.usyd.edu.au/ddan1654/PlenCal.pdf" target="_blank" rel="external">“Decoding, Calibration and Rectification for Lenselet-Based Plenoptic Cameras” </a>）；两个平面的距离存储在LF.f, 单位 [mm]； 相机焦距：LF.parameters.intrinsics.focal_length_mm.</p>
+<p><span id="inline-red">注意</span>：生成LF.mat的过程用到的参数通过加载相应文件夹下parameters.cfg得到，并将其存储在了LF.parameters中；H变换矩阵存储在了LF.H中（可以参考论文<a href="http://www-personal.acfr.usyd.edu.au/ddan1654/PlenCal.pdf" target="_blank" rel="external">“Decoding, Calibration and Rectification for Lenselet-Based Plenoptic Cameras” </a>）；两个平面的距离存储在LF.f, 单位 [mm]； 相机焦距：LF.parameters.intrinsics.focal_length_mm.</p>
 <h4 id="生成点云（Point-Cloud）"><a href="#生成点云（Point-Cloud）" class="headerlink" title="生成点云（Point Cloud）"></a>生成点云（Point Cloud）</h4><p>接下来我以<strong>additional</strong>文件下的<strong><code>antinous</code></strong>为例子展示如何利用深度图像（官方利用视差）与纹理图像生成点云。</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">filename=<span class="string">'antinous'</span>;</div><div class="line">addpath(<span class="string">'lib'</span>);</div><div class="line"><span class="comment">% 得到antinous的LF.mat</span></div><div class="line">convertBlenderTo5D([<span class="string">'additional/'</span>,filename])</div><div class="line">load([<span class="string">'additional/'</span>,filename,<span class="string">'/LF.mat'</span>]);</div><div class="line"></div><div class="line">img=LF.LF(<span class="number">5</span>,<span class="number">5</span>,:,:,:); <span class="comment">%中心视角，用于着色</span></div><div class="line">r=img(:,:,<span class="number">1</span>);</div><div class="line">g=img(:,:,<span class="number">2</span>);</div><div class="line">b=img(:,:,<span class="number">3</span>);</div><div class="line"></div><div class="line"><span class="comment">% 深度图读取</span></div><div class="line">d=pfmread([<span class="string">'additional_depth_disp_all_views\',filename,'</span>\gt_disp_lowres_Cam025.pfm<span class="string">']);</span></div><div class="line">d=mat2gray(d);</div><div class="line"></div><div class="line">mkdir(['PointClouds-color/<span class="string">',filename]);建立一个文件夹存储图片</span></div><div class="line"></div><div class="line">[ X,Y,Z ] = getPointcloud(LF,'disp<span class="string">',d);</span></div><div class="line">ptCloud1 = pointCloud([X(:),Y(:),Z(:)],'color<span class="string">',[r(:) g(:) b(:)]);</span></div><div class="line"></div><div class="line">h1=figure(1);</div><div class="line">pcshow(ptCloud1);</div><div class="line"></div><div class="line">axis off</div><div class="line">set(gcf,'color<span class="string">',[1 1 1])</span></div><div class="line">set(gcf,'Position<span class="string">',[800,300,600,600], '</span>color<span class="string">','</span>w<span class="string">')</span></div><div class="line">view(90.6338,  88.5605);</div><div class="line">zoom(1.2)</div></pre></td></tr></table></figure>
 <p>结果如下所示：</p>
 <center><img src="/2017/04/30/初试HCI光场数据集/PCs.gif" alt="点云" title="点云"></center>
 
-<p><strong><font color="red">注意</font></strong>：生成点云这一步，低版本的MATLAB（如R2014a）由于没有加入相应的函数所以不能够生成点云，高版本（R2016b）可以正常生成。</p>
+<p><span id="inline-red">注意</span>：生成点云这一步，低版本的MATLAB（如R2014a）由于没有加入相应的函数所以不能够生成点云，高版本（R2016b）可以正常生成。</p>
 
       
     </div>
