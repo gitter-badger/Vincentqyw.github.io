@@ -431,6 +431,7 @@
 <li><p><strong>chmod</strong> 修改用户权限，有3种用户，分别是：</p>
 </li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -467,6 +468,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>假如取消作者的写的权限则：<code>chmod u-w file.txt</code>，其中减号表示“去除”<br>假如添加作者的写的权限则：<code>chmod u+w file.txt</code>，其中减号表示“添加”<br>假如除了作者以外的人都没有读写权限：<code>chmod go-r
 file.txt</code><br>同样可以用二进制设置权限 <code>chmod 444 file.txt</code>，表示：u,g,o都只有读的权限。</p>
 <h2 id="脚本语言"><a href="#脚本语言" class="headerlink" title="脚本语言"></a>脚本语言</h2><p>就是将Linux命令集中在一起，组成一个文件，例如有一个test.sh脚本文件<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ls</div><div class="line">date</div><div class="line">cal</div></pre></td></tr></table></figure></p>
