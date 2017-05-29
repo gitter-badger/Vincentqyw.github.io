@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.vincentqin.tech/ganhuo/index.html</loc>
+    
+    <lastmod>2017-05-29T08:17:12.370Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.vincentqin.tech/2016/08/09/HEXO%E5%BB%BA%E7%AB%99%E5%A4%87%E5%BF%98%E5%BD%95/</loc>
     
     <lastmod>2017-05-20T08:03:40.535Z</lastmod>
@@ -82,13 +89,6 @@
     <loc>http://www.vincentqin.tech/about/index.html</loc>
     
     <lastmod>2017-04-15T13:06:38.778Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.vincentqin.tech/ganhuo/index.html</loc>
-    
-    <lastmod>2017-04-15T09:20:15.384Z</lastmod>
     
   </url>
   
