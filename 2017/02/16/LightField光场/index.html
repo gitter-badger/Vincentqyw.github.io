@@ -536,7 +536,36 @@ raw.lfp就是我们需要的原文件，之后呢用MATLAB光场工具包转化�
 <center><iframe width="600" height="434" src="https://pictures.lytro.com/karinaguillenphoto/pictures/1004450/embed" frameborder="0" allowfullscreen scrolling="no"></iframe></center>
 
 <p>更多图像在<a href="https://pictures.lytro.com/" target="_blank" rel="external">这里</a>。</p>
-<p>日常来首歌曲：</p>
+<p>PS: 我的论文中的优化模型为：</p>
+<script type="math/tex; mode=display">\sum_p\left({U(p)-\sum_{s \in N(p)}w_{ps}D(s)}\right)^2+
+\sum_p\left({G_U(p)-G_{I_c}(p)}\right)^2+
+\sum_p\left(\Delta U(p)\right)^2</script><ul>
+<li>g is the input color image, D is the raw depth map, u is the output<script type="math/tex; mode=display">u^T(I-W')u+
+\lambda \left((D_xu)^TD_xu+(D_yu)^TD_yu +
+(D_xg)^TD_xg+(D_yg)^TD_yg -
+(D_xg)^TD_xu-(D_yg)^TD_yu\right) +
+\gamma \left( (L_xu)^TL_xu+(L_yu)^TL_yu\right)</script></li>
+</ul>
+<p>其中I为单位矩阵，Ｗ为包含像素之间相似性的权重的sparse矩阵。进一步地可以删除上式中的无关项，得到：</p>
+<script type="math/tex; mode=display">u^T(I-W')u+
+\lambda \left((D_xu)^TD_xu+(D_yu)^TD_yu -
+ (D_xg)^TD_xu-(D_yg)^TD_yu\right) +
+ \gamma \left( (L_xu)^TL_xu+(L_yu)^TL_yu\right)</script><p>经过简化，上式可以简化为：</p>
+<script type="math/tex; mode=display">
+\bbox[5px,border:2px solid red]
+{
+    J(u)=u^T(I-W)u-Ru
+}</script><p>其中W仍然是一个稀疏矩阵，如下形式：</p>
+<script type="math/tex; mode=display">W=W'+D_x^TD_x+D_y^TD_y+L_x^TL_x+L_y^TL_y</script><script type="math/tex; mode=display">R=g^T\left(D_x^TD_x+D_y^TD_y\right)</script><p>从而进一步地对红框处公式求导得到：</p>
+<script type="math/tex; mode=display">\frac{d}{du}J(u)=\left[(I-W)+(I-W)^T\right]u-R^T=0</script><p>进而得到：</p>
+<script type="math/tex; mode=display">\bbox[5px,border:2px solid red]
+{
+u=\left[(I-W)+(I-W)^T\right]^{-1}R^T
+}</script><p>以上是close-form形式的解；当然还可以通过迭代求解：</p>
+<script type="math/tex; mode=display">u^{t+1}=u^t-\alpha\frac{d}{du}J(u)|_{u=u^t}</script><p>即：</p>
+<script type="math/tex; mode=display">\bbox[5px,border:2px solid red]{
+u^{t+1}=\left[1-\alpha\left((I-W)+(I-W)^T\right)\right]u^t-\alpha R^T
+}</script><p>先写到这里吧，大家应该不会看到这里了~<br>日常来首歌曲：</p>
 <center><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="600" height="86" src="http://music.163.com/outchain/player?type=2&id=33538955&auto=0&height=66"></iframe></center>
 
 
