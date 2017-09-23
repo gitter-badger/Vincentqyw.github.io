@@ -71,7 +71,7 @@
 <meta property="og:image" content="http://www.vincentqin.tech/2017/09/23/统计学习方法总结/cover.jpg">
 <meta property="og:image" content="https://uploadfiles.nowcoder.com/images/20170902/1124449_1504333555806_99A61EED5E6F79CC20E4E8CFDA6B5AF4">
 <meta property="og:image" content="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/359b033b5bb5c9ea238f2f6cdd39b6003bf3b3c4.jpg">
-<meta property="og:updated_time" content="2017-09-23T12:25:51.933Z">
+<meta property="og:updated_time" content="2017-09-23T12:33:27.427Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="统计学习方法总结">
 <meta name="twitter:description" content="本文主要研究监督学习，所谓的监督学习就是在给定的，有限的，用于学习的训练数据集合（training data）出发，假设数据是独立同分布产生的；并且假设要学习的模型属于某个集合，即假设空间；我们根据一定的评价准则，从假设空间中选取一个最优的模型，使它对已知的训练数据以及未知的测试数据在给定评价准则下有最优的预测，最优模型的选取由算法实现。所以统计学习方法有三个要素：模型、策略、算法。">
@@ -352,7 +352,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-09-23T20:25:51+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2017-09-23T20:33:27+08:00">
                 2017-09-23
               </time>
             
@@ -515,7 +515,7 @@ w \rightarrow w-\eta\frac{\partial C}{\partial w}=\left(1-\frac{\eta\lambda}{n} 
 <blockquote>
 <p>举个别人博客中的例子，假如有一个罐子，里面有黑白两种颜色的球，数目多少不知，两种颜色的比例也不知。我 们想知道罐中白球和黑球的比例，但我们不能把罐中的球全部拿出来数。现在我们可以每次任意从已经摇匀的罐中拿一个球出来，记录球的颜色，然后把拿出来的球 再放回罐中。这个过程可以重复，我们可以用记录的球的颜色来估计罐中黑白球的比例。假如在前面的一百次重复记录中，有七十次是白球，请问罐中白球所占的比例最有可能是多少？很多人马上就有答案了：70%。而其后的理论支撑是什么呢？</p>
 </blockquote>
-<p>我们假设罐中白球的比例是$p$，那么黑球的比例就是$1-p$。因为每抽一个球出来，在记录颜色之后，我们把抽出的球放回了罐中并摇匀，所以每次抽出来的球的颜 色服从同一独立分布。这里我们把一次抽出来球的颜色称为一次抽样。题目中在一百次抽样中，七十次是白球的概率$P(Data|M)$，这里Data是所有的数据，M是所给出的模型，表示每次抽出来的球是白色的概率为$p$。如果第一抽样的结果记为 <script type="math/tex">x_1</script>，第二抽样的结果记为<script type="math/tex">x_2</script>… 那么<script type="math/tex">Data = (x_1,x_2,...,x_{100})</script>。这样，</p>
+<p>我们假设罐中白球的比例是$p$，那么黑球的比例就是$1-p$。因为每抽一个球出来，在记录颜色之后，我们把抽出的球放回了罐中并摇匀，所以每次抽出来的球的颜 色服从同一独立分布。这里我们把一次抽出来球的颜色称为一次抽样。题目中在一百次抽样中，七十次是白球的概率$P(Data|M)$，这里Data是所有的数据，M是所给出的模型，表示每次抽出来的球是白色的概率为$p$。如果第一抽样的结果记为<script type="math/tex">x_1</script>，第二抽样的结果记为<script type="math/tex">x_2</script>… 那么<script type="math/tex">Data = (x_1,x_2,...,x_{100})</script>。这样，</p>
 <script type="math/tex; mode=display">
 P(Data|M)= P(x_1,x_2,...,x_{100}|M)= P(x_1|M)P(x_2|M)...P(x_{100}|M)= p^{70}(1-p)^{30}</script><p>那么p在取什么值的时候，$P(Data|M)$的值最大呢？将$p^{70}(1-p)^{30}$对$p$求导，并其等于零。</p>
 <script type="math/tex; mode=display">
@@ -524,31 +524,25 @@ P(Data|M)= P(x_1,x_2,...,x_{100}|M)= P(x_1|M)P(x_2|M)...P(x_{100}|M)= p^{70}(1-p
 <h3 id="最大熵原理"><a href="#最大熵原理" class="headerlink" title="最大熵原理"></a>最大熵原理</h3><p>最大熵原理使概率学习中的一个准则。学习概率模型时，在所有的可能概率模型（分布）中，熵最大的模型是最好的模型。最大熵原理也可以理解成在满足约束条件的模型中选择熵最大的模型！</p>
 <script type="math/tex; mode=display">
 H(p)=-\sum_x{log(P(x))P(x)}</script><p>其中$X$服从的概率分布为$P(X)$，$X$服从均匀分布时，熵最大。当没有其他已知的约束时，$\Sigma{P(x)}=1$，此时按照最大熵原理，当$P(x_1)=P(x_2)=…=P(x_n)$时，熵最大；此时等概论，等概论意味着对事实的无知，因为没有更多可能的信息，所以此时的判断也是合情合理的。</p>
-<h3 id="线性分类器"><a href="#线性分类器" class="headerlink" title="线性分类器"></a>线性分类器</h3><p>线性分类器有三大类：感知器准则函数、SVM、Fisher准则，而贝叶斯分类器不是线性分类器。</p>
+<h3 id="线性分类器"><a href="#线性分类器" class="headerlink" title="线性分类器"></a>线性分类器</h3><p>线性分类器有三大类：感知器准则函数、$SVM$、$Fisher$准则，而贝叶斯分类器不是线性分类器。</p>
 <ul>
-<li>感知器准则函数：代价函数$J=-(W*X+w_0)$，分类的准则是最小化代价函数。感知器是神经网络（NN）的基础，网上有很多介绍。</li>
-<li>SVM：支持向量机也是很经典的算法，优化目标是最大化间隔（margin），又称最大间隔分类器，是一种典型的线性分类器。（使用核函数可解决非线性问题）</li>
-<li>Fisher准则：更广泛的称呼是线性判别分析（LDA），将所有样本投影到一条远点出发的直线，使得同类样本距离尽可能小，不同类样本距离尽可能大，具体为最大化“广义瑞利商”。</li>
-<li></li>
+<li>感知器准则函数：代价函数$J=-(W*X+w_0)$，分类的准则是最小化代价函数。感知器是神经网络（$NN$）的基础，网上有很多介绍。</li>
+<li>$SVM$：支持向量机也是很经典的算法，优化目标是最大化间隔（margin），又称最大间隔分类器，是一种典型的线性分类器。（使用核函数可解决非线性问题）</li>
+<li>$Fisher$准则：更广泛的称呼是线性判别分析（$LDA$），将所有样本投影到一条远点出发的直线，使得同类样本距离尽可能小，不同类样本距离尽可能大，具体为最大化“广义瑞利商”。</li>
 </ul>
-<h3 id="NB"><a href="#NB" class="headerlink" title="NB"></a>NB</h3><p>NB的核心在于它假设向量的所有分量之间是独立的。<br>在贝叶斯理论系统中，都有一个重要的条件独立性假设：假设所有特征之间相互独立，这样才能将联合概率拆分。</p>
-<ul>
+<h3 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h3><ul>
 <li>召回率就是有多少正确的被你找回来了；准确率就是你找到的有多少是正确的；(一般情况下召回率和准确率呈负相关，所以可以用F值衡量整体效果)</li>
 <li>TP(True Positive)是你判断为正确的，实际就是正确的；</li>
 <li>FP(False Positive)是你判断是错误的，实际也是错误的；</li>
 <li>TN(True Negative)是你判断为正确的，但实际是错误的；</li>
 <li>FN(False Negative)是你判断是错误的，但实际是正确的；</li>
 </ul>
-<h2 id="朴素贝叶斯-Naive-Bayes"><a href="#朴素贝叶斯-Naive-Bayes" class="headerlink" title="朴素贝叶斯 Naive Bayes"></a>朴素贝叶斯 <script type="math/tex">Naive Bayes</script></h2><h3 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h3><p>朴素贝叶斯是基于贝叶斯定理与特征条件独立假设的分类方法。</p>
-<p>对于由$P(X,Y)$独立产生的训练集$T={(x_1,y_1),(x_2,y_2),…, (x_N,y_N),}$而言通过朴素贝叶斯的方法学习这个联合概率分布。大致分两步：</p>
+<h2 id="朴素贝叶斯-Naive-Bayes"><a href="#朴素贝叶斯-Naive-Bayes" class="headerlink" title="朴素贝叶斯 Naive Bayes"></a>朴素贝叶斯 <script type="math/tex">Naive Bayes</script></h2><h3 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h3><p>朴素贝叶斯是基于贝叶斯定理与特征条件独立假设的分类方法。NB的核心在于它假设向量的所有分量之间是独立的。在贝叶斯理论系统中，都有一个重要的条件独立性假设：假设所有特征之间相互独立，这样才能将联合概率拆分。<br>对于由$P(X,Y)$独立产生的训练集$T={(x_1,y_1),(x_2,y_2),…, (x_N,y_N),}$而言通过朴素贝叶斯的方法学习这个联合概率分布。大致分两步：</p>
 <ol>
-<li><p>计算先验分布：</p>
-<script type="math/tex; mode=display">
+<li>计算先验分布：<script type="math/tex; mode=display">
 P(Y=c_k),k=1,2...,K</script></li>
-<li><p>条件概率分布：</p>
-<script type="math/tex; mode=display">
-P(X=x|Y=c_k)=P(X^{(1)}=x^{(1)},X^{(2)}=x^{(2)},...,X^{(n)}=x^{(n)}|Y=c_k),k=1,2...,K</script><p>其中的$x \in  R^{n}$，$n$表示这个样本的维度。</p>
-</li>
+<li>条件概率分布：<script type="math/tex; mode=display">
+P(X=x|Y=c_k)=P(X^{(1)}=x^{(1)},X^{(2)}=x^{(2)},...,X^{(n)}=x^{(n)}|Y=c_k),k=1,2...,K</script>其中的$x \in  R^{n}$，$n$表示这个样本的维度。</li>
 </ol>
 <p>但是在计算条件概率时因为朴素贝叶斯做了条件独立性假设，那么该条件概率分布可以写成：</p>
 <script type="math/tex; mode=display">
@@ -556,7 +550,7 @@ P(X=x|Y=c_k)=P(X^{(1)}=x^{(1)},X^{(2)}=x^{(2)},...,X^{(n)}=x^{(n)}|Y=c_k)
 \\
 =\prod_{j=1}^nP(X^{(j)}=x^{(j)}|Y=c_k)</script><p>在实际分类时，对于给定的输入x，通过学习到的模型估计后验概率$P(Y=c_k|X=x)$将后验概率最大的类作为x的类的输出。</p>
 <script type="math/tex; mode=display">
-P(Y=c_k|X=x)=\frac{P(X=x|Y=c_k)P(Y=c_k)}{\sum_{k}P(X=x|Y=c_k)P(Y=c_k)}</script><script type="math/tex; mode=display">
+P(Y=c_k|X=x)=\frac{P(X=x|Y=c_k)P(Y=c_k)}{\sum_{k}P(X=x|Y=c_k)P(Y=c_k)}
 =\frac{P(Y=c_k)\prod_{j=1}^nP(X^{(j)}=x^{(j)}|Y=c_k)}{\sum_{k}P(Y=c_k)\prod_{j=1}^nP(X^{(j)}=x^{(j)}|Y=c_k)}</script><p>因为分母就是$P(X=x)$的概率，这是不变的。因此我们仅需要知道分子哪个大就可以，也就是：</p>
 <script type="math/tex; mode=display">
 y={argmax}_{c_k} P(Y=c_k)\prod_{j=1}^nP(X^{(j)}=x^{(j)}|Y=c_k)</script><p>上式的意思是求解到底是哪些类别<script type="math/tex">c_k</script>能够让最大后验概率最大化。</p>
@@ -903,7 +897,7 @@ P(Y=c_k)\prod_{j=1}^nP(X^{(j)}=x^{(j)}|Y=c_k)</script></li>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#统计学习"><span class="nav-number">1.</span> <span class="nav-text">统计学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入空间、特征空间与输出空间"><span class="nav-number">2.</span> <span class="nav-text">输入空间、特征空间与输出空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#风险函数"><span class="nav-number">3.</span> <span class="nav-text">风险函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">4.</span> <span class="nav-text">模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#生成模型与判别模型"><span class="nav-number">4.1.</span> <span class="nav-text">生成模型与判别模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#策略"><span class="nav-number">5.</span> <span class="nav-text">策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-number">6.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型选择"><span class="nav-number">7.</span> <span class="nav-text">模型选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正则化"><span class="nav-number">7.1.</span> <span class="nav-text">正则化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#L2范数正则"><span class="nav-number">7.1.1.</span> <span class="nav-text">L2范数正则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#L1范数正则"><span class="nav-number">7.1.2.</span> <span class="nav-text">L1范数正则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考链接"><span class="nav-number">7.1.3.</span> <span class="nav-text">参考链接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交叉验证"><span class="nav-number">7.2.</span> <span class="nav-text">交叉验证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#极大似然估计"><span class="nav-number">8.</span> <span class="nav-text">极大似然估计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最大熵原理"><span class="nav-number">8.1.</span> <span class="nav-text">最大熵原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线性分类器"><span class="nav-number">8.2.</span> <span class="nav-text">线性分类器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NB"><span class="nav-number">8.3.</span> <span class="nav-text">NB</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#朴素贝叶斯-Naive-Bayes"><span class="nav-number">9.</span> <span class="nav-text">朴素贝叶斯 Naive Bayes</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本方法"><span class="nav-number">9.1.</span> <span class="nav-text">基本方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数估计"><span class="nav-number">9.2.</span> <span class="nav-text">参数估计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#极大似然估计-1"><span class="nav-number">9.2.1.</span> <span class="nav-text">极大似然估计</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#统计学习"><span class="nav-number">1.</span> <span class="nav-text">统计学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入空间、特征空间与输出空间"><span class="nav-number">2.</span> <span class="nav-text">输入空间、特征空间与输出空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#风险函数"><span class="nav-number">3.</span> <span class="nav-text">风险函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">4.</span> <span class="nav-text">模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#生成模型与判别模型"><span class="nav-number">4.1.</span> <span class="nav-text">生成模型与判别模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#策略"><span class="nav-number">5.</span> <span class="nav-text">策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-number">6.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型选择"><span class="nav-number">7.</span> <span class="nav-text">模型选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正则化"><span class="nav-number">7.1.</span> <span class="nav-text">正则化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#L2范数正则"><span class="nav-number">7.1.1.</span> <span class="nav-text">L2范数正则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#L1范数正则"><span class="nav-number">7.1.2.</span> <span class="nav-text">L1范数正则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考链接"><span class="nav-number">7.1.3.</span> <span class="nav-text">参考链接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交叉验证"><span class="nav-number">7.2.</span> <span class="nav-text">交叉验证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#极大似然估计"><span class="nav-number">8.</span> <span class="nav-text">极大似然估计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最大熵原理"><span class="nav-number">8.1.</span> <span class="nav-text">最大熵原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线性分类器"><span class="nav-number">8.2.</span> <span class="nav-text">线性分类器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评价指标"><span class="nav-number">8.3.</span> <span class="nav-text">评价指标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#朴素贝叶斯-Naive-Bayes"><span class="nav-number">9.</span> <span class="nav-text">朴素贝叶斯 Naive Bayes</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本方法"><span class="nav-number">9.1.</span> <span class="nav-text">基本方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数估计"><span class="nav-number">9.2.</span> <span class="nav-text">参数估计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#极大似然估计-1"><span class="nav-number">9.2.1.</span> <span class="nav-text">极大似然估计</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
