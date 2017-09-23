@@ -71,7 +71,7 @@
 <meta property="og:image" content="http://www.vincentqin.tech/2017/09/23/统计学习方法总结/cover.jpg">
 <meta property="og:image" content="https://uploadfiles.nowcoder.com/images/20170902/1124449_1504333555806_99A61EED5E6F79CC20E4E8CFDA6B5AF4">
 <meta property="og:image" content="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/359b033b5bb5c9ea238f2f6cdd39b6003bf3b3c4.jpg">
-<meta property="og:updated_time" content="2017-09-23T12:33:27.427Z">
+<meta property="og:updated_time" content="2017-09-23T12:36:30.134Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="统计学习方法总结">
 <meta name="twitter:description" content="本文主要研究监督学习，所谓的监督学习就是在给定的，有限的，用于学习的训练数据集合（training data）出发，假设数据是独立同分布产生的；并且假设要学习的模型属于某个集合，即假设空间；我们根据一定的评价准则，从假设空间中选取一个最优的模型，使它对已知的训练数据以及未知的测试数据在给定评价准则下有最优的预测，最优模型的选取由算法实现。所以统计学习方法有三个要素：模型、策略、算法。">
@@ -352,7 +352,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-09-23T20:33:27+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2017-09-23T20:36:30+08:00">
                 2017-09-23
               </time>
             
@@ -550,7 +550,7 @@ P(X=x|Y=c_k)=P(X^{(1)}=x^{(1)},X^{(2)}=x^{(2)},...,X^{(n)}=x^{(n)}|Y=c_k)
 \\
 =\prod_{j=1}^nP(X^{(j)}=x^{(j)}|Y=c_k)</script><p>在实际分类时，对于给定的输入x，通过学习到的模型估计后验概率$P(Y=c_k|X=x)$将后验概率最大的类作为x的类的输出。</p>
 <script type="math/tex; mode=display">
-P(Y=c_k|X=x)=\frac{P(X=x|Y=c_k)P(Y=c_k)}{\sum_{k}P(X=x|Y=c_k)P(Y=c_k)}
+P(Y=c_k|X=x)=\frac{P(X=x|Y=c_k)P(Y=c_k)}{\sum_{k}P(X=x|Y=c_k)P(Y=c_k)}\
 =\frac{P(Y=c_k)\prod_{j=1}^nP(X^{(j)}=x^{(j)}|Y=c_k)}{\sum_{k}P(Y=c_k)\prod_{j=1}^nP(X^{(j)}=x^{(j)}|Y=c_k)}</script><p>因为分母就是$P(X=x)$的概率，这是不变的。因此我们仅需要知道分子哪个大就可以，也就是：</p>
 <script type="math/tex; mode=display">
 y={argmax}_{c_k} P(Y=c_k)\prod_{j=1}^nP(X^{(j)}=x^{(j)}|Y=c_k)</script><p>上式的意思是求解到底是哪些类别<script type="math/tex">c_k</script>能够让最大后验概率最大化。</p>
