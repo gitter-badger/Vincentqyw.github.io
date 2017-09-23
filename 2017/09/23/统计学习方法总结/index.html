@@ -61,20 +61,21 @@
 
 
 
-<meta name="description" content="统计学习 监督学习 半监督学习 无监督学习 强化学习  主要研究监督学习，所谓的监督学习就是在给定的，有限的，用于学习的训练数据集合（training data）出发，假设数据是独立同分布产生的；并且假设要学习的模型属于某个集合，即假设空间；我们根据一定的评价准则，从假设空间中选取一个最优的模型，使它对已知的训练数据以及未知的测试数据在给定评价准则下有最优的预测，最优模型的选取由算法实现。 所以统">
+<meta name="description" content="本文主要研究监督学习，所谓的监督学习就是在给定的，有限的，用于学习的训练数据集合（training data）出发，假设数据是独立同分布产生的；并且假设要学习的模型属于某个集合，即假设空间；我们根据一定的评价准则，从假设空间中选取一个最优的模型，使它对已知的训练数据以及未知的测试数据在给定评价准则下有最优的预测，最优模型的选取由算法实现。所以统计学习方法有三个要素：模型、策略、算法。">
 <meta name="keywords" content="机器学习,统计学习方法,概率论,SVM,过拟合,朴素贝叶斯">
 <meta property="og:type" content="article">
 <meta property="og:title" content="统计学习方法总结">
 <meta property="og:url" content="http://www.vincentqin.tech/2017/09/23/统计学习方法总结/index.html">
 <meta property="og:site_name" content="Vincent Qin | 秦延文">
-<meta property="og:description" content="统计学习 监督学习 半监督学习 无监督学习 强化学习  主要研究监督学习，所谓的监督学习就是在给定的，有限的，用于学习的训练数据集合（training data）出发，假设数据是独立同分布产生的；并且假设要学习的模型属于某个集合，即假设空间；我们根据一定的评价准则，从假设空间中选取一个最优的模型，使它对已知的训练数据以及未知的测试数据在给定评价准则下有最优的预测，最优模型的选取由算法实现。 所以统">
+<meta property="og:description" content="本文主要研究监督学习，所谓的监督学习就是在给定的，有限的，用于学习的训练数据集合（training data）出发，假设数据是独立同分布产生的；并且假设要学习的模型属于某个集合，即假设空间；我们根据一定的评价准则，从假设空间中选取一个最优的模型，使它对已知的训练数据以及未知的测试数据在给定评价准则下有最优的预测，最优模型的选取由算法实现。所以统计学习方法有三个要素：模型、策略、算法。">
+<meta property="og:image" content="http://www.vincentqin.tech/2017/09/23/统计学习方法总结/cover.jpg">
 <meta property="og:image" content="https://uploadfiles.nowcoder.com/images/20170902/1124449_1504333555806_99A61EED5E6F79CC20E4E8CFDA6B5AF4">
 <meta property="og:image" content="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/359b033b5bb5c9ea238f2f6cdd39b6003bf3b3c4.jpg">
-<meta property="og:updated_time" content="2017-09-23T12:06:26.756Z">
+<meta property="og:updated_time" content="2017-09-23T12:22:35.929Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="统计学习方法总结">
-<meta name="twitter:description" content="统计学习 监督学习 半监督学习 无监督学习 强化学习  主要研究监督学习，所谓的监督学习就是在给定的，有限的，用于学习的训练数据集合（training data）出发，假设数据是独立同分布产生的；并且假设要学习的模型属于某个集合，即假设空间；我们根据一定的评价准则，从假设空间中选取一个最优的模型，使它对已知的训练数据以及未知的测试数据在给定评价准则下有最优的预测，最优模型的选取由算法实现。 所以统">
-<meta name="twitter:image" content="https://uploadfiles.nowcoder.com/images/20170902/1124449_1504333555806_99A61EED5E6F79CC20E4E8CFDA6B5AF4">
+<meta name="twitter:description" content="本文主要研究监督学习，所谓的监督学习就是在给定的，有限的，用于学习的训练数据集合（training data）出发，假设数据是独立同分布产生的；并且假设要学习的模型属于某个集合，即假设空间；我们根据一定的评价准则，从假设空间中选取一个最优的模型，使它对已知的训练数据以及未知的测试数据在给定评价准则下有最优的预测，最优模型的选取由算法实现。所以统计学习方法有三个要素：模型、策略、算法。">
+<meta name="twitter:image" content="http://www.vincentqin.tech/2017/09/23/统计学习方法总结/cover.jpg">
 
 
 
@@ -351,7 +352,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-09-23T20:06:26+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2017-09-23T20:22:35+08:00">
                 2017-09-23
               </time>
             
@@ -405,14 +406,16 @@
       
 
       
-        <h2 id="统计学习"><a href="#统计学习" class="headerlink" title="统计学习"></a>统计学习</h2><ul>
+        <center><img src="/2017/09/23/统计学习方法总结/cover.jpg" alt="machine learning" title="machine learning"></center>
+
+<p>本文主要研究监督学习，所谓的监督学习就是在给定的，有限的，用于学习的训练数据集合（training data）出发，假设数据是独立同分布产生的；并且假设要学习的模型属于某个集合，即<strong>假设空间</strong>；我们根据一定的评价准则，从假设空间中选取一个最优的模型，使它对已知的训练数据以及未知的测试数据在给定评价准则下有最优的预测，最优模型的选取由<strong>算法</strong>实现。<br>所以统计学习方法有三个要素：<strong>模型</strong>、<strong>策略</strong>、<strong>算法</strong>。</p>
+<a id="more"></a>
+<h2 id="统计学习"><a href="#统计学习" class="headerlink" title="统计学习"></a>统计学习</h2><ul>
 <li>监督学习</li>
 <li>半监督学习</li>
 <li>无监督学习</li>
 <li>强化学习</li>
 </ul>
-<p>主要研究监督学习，所谓的监督学习就是在给定的，有限的，用于学习的训练数据集合（training data）出发，假设数据是独立同分布产生的；并且假设要学习的模型属于某个集合，即<strong>假设空间</strong>；我们根据一定的评价准则，从假设空间中选取一个最优的模型，使它对已知的训练数据以及未知的测试数据在给定评价准则下有最优的预测，最优模型的选取由<strong>算法</strong>实现。</p>
-<p>所以统计学习方法有三个要素：<strong>模型</strong>、<strong>策略</strong>、<strong>算法</strong>。</p>
 <h2 id="输入空间、特征空间与输出空间"><a href="#输入空间、特征空间与输出空间" class="headerlink" title="输入空间、特征空间与输出空间"></a>输入空间、特征空间与输出空间</h2><ol>
 <li>输入变量&amp;输出变量均连续-&gt; 回归问题</li>
 <li>输出空间为有限个离散变量的预测问题-&gt; 分类问题</li>
@@ -427,9 +430,9 @@
 <ul>
 <li>生成方法，由数据学习联合概率分布$P(X,Y)$，然后求出条件概率分布模型，即生成模型：<script type="math/tex; mode=display">
 P(Y|X)=\frac{P(X,Y)}{P(X)}</script></li>
-<li>判别方法是由数据直接学习决策函数或者条件概率分布作为预测模型，即判别模型。<h3 id="生成模型与判别模型"><a href="#生成模型与判别模型" class="headerlink" title="生成模型与判别模型"></a>生成模型与判别模型</h3></li>
+<li>判别方法是由数据直接学习决策函数或者条件概率分布作为预测模型，即判别模型。</li>
 </ul>
-<ul>
+<h3 id="生成模型与判别模型"><a href="#生成模型与判别模型" class="headerlink" title="生成模型与判别模型"></a>生成模型与判别模型</h3><ul>
 <li>生成模型常见的主要有：</li>
 </ul>
 <ol>
@@ -478,14 +481,14 @@ R_{ref}(f)=E_p[L(Y,f(X))]=\int_{\mathcal{X} \times \mathcal{Y}}L(y,f(x))P(x,y)dx
 <script type="math/tex; mode=display">
 R_{emp}(f)=E_p[L(Y,f(X))]=\frac{1}{N} \sum_{i=1}^NL(y_i,f(x_i))</script><p><strong>经验风险最小化</strong>的策略认为，经验风险最小的模型就是最优的模型，于是按照这种定义，我们有：</p>
 <script type="math/tex; mode=display">
-f^*={argmin}_{f \in \mathcal{F} } R_{emp}</script><p>其中的$mathcal{F}$是假设空间。<br>最大似然估计就是经验风险最小化的一个例子：==当模型为条件概率，损失函数是对数损失时，经验风险最小化就等价于极大似然估计==。<br>根据大数定理可知，当样本容量N趋近于无限时，经验风险趋近于期望风险。但是如果样本数量是有限时，此时会出现过拟合现象，那么这时候需要结构风险的帮助。<br>结构风险是为了防止过拟合而提出的策略，结构风险最小化等价于正则化（regularization）。其定义是</p>
+f^*={argmin}_{f \in \mathcal{F} } R_{emp}</script><p>其中的$\mathcal{F}$是假设空间。<br>最大似然估计就是经验风险最小化的一个例子：当模型为条件概率，损失函数是对数损失时，经验风险最小化就等价于极大似然估计。<br>根据大数定理可知，当样本容量N趋近于无限时，经验风险趋近于期望风险。但是如果样本数量是有限时，此时会出现过拟合现象，那么这时候需要结构风险的帮助。<br>结构风险是为了防止过拟合而提出的策略，结构风险最小化等价于正则化（regularization）。其定义是</p>
 <script type="math/tex; mode=display">
-R_{srm}(f)=\frac{1}{N} \sum_{i=1}^NL(y_i,f(x_i))+\lambda J(f)</script><p>其中的$J(f)$是衡量模型复杂度的项，也叫罚项。当模型越复杂时，$J(f)$越大；模型越简单时，$J(f)$越小。<br>最大后验概率估计（MAP）就是结构风险最小化的一个例子：==当模型时条件概率，损失函数是对数损失函数，模型复杂度由先验概率表示时，结构风险最小化就等价于MAP==。</p>
+R_{srm}(f)=\frac{1}{N} \sum_{i=1}^NL(y_i,f(x_i))+\lambda J(f)</script><p>其中的$J(f)$是衡量模型复杂度的项，也叫罚项。当模型越复杂时，$J(f)$越大；模型越简单时，$J(f)$越小。<br>最大后验概率估计（MAP）就是结构风险最小化的一个例子：当模型时条件概率，损失函数是对数损失函数，模型复杂度由先验概率表示时，结构风险最小化就等价于MAP。</p>
 <p>监督学习的模型可以分为概率模型与非概率模型，由条件概率分布$P(Y|X)$或者决策函数$Y=f(X)$表示。</p>
 <h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>算法是指学习模型的具体计算方法： <strong>find global optimization solution efficiently</strong>.</p>
 <h2 id="模型选择"><a href="#模型选择" class="headerlink" title="模型选择"></a>模型选择</h2><p><strong>模型选择的主要方式有：正则化与交叉验证</strong>。</p>
 <p>在经验风险最小化时已经了解到正则化的由来，正则化就是针对过拟合现象提出的解决策略。</p>
-<p>==过拟合==是指学习模型时选择的模型包含的参数过多，以致于这一模型对已知数据的预测很好，而对未知数据的预测能力变得很差。 以下介绍两种正则化的范数：$L_1$ and $L_2$</p>
+<p><strong>过拟合</strong>是指学习模型时选择的模型包含的参数过多，以致于这一模型对已知数据的预测很好，而对未知数据的预测能力变得很差。 以下介绍两种正则化的范数：$L_1$ and $L_2$</p>
 <h3 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h3><h4 id="L2范数正则"><a href="#L2范数正则" class="headerlink" title="L2范数正则"></a>L2范数正则</h4><script type="math/tex; mode=display">
 C=C_0+ \frac{\alpha}{2n}\sum_ww^2</script><p>对$w$以及$b$求导如下：</p>
 <script type="math/tex; mode=display">
@@ -512,7 +515,7 @@ w \rightarrow w-\eta\frac{\partial C}{\partial w}=\left(1-\frac{\eta\lambda}{n} 
 <blockquote>
 <p>举个别人博客中的例子，假如有一个罐子，里面有黑白两种颜色的球，数目多少不知，两种颜色的比例也不知。我 们想知道罐中白球和黑球的比例，但我们不能把罐中的球全部拿出来数。现在我们可以每次任意从已经摇匀的罐中拿一个球出来，记录球的颜色，然后把拿出来的球 再放回罐中。这个过程可以重复，我们可以用记录的球的颜色来估计罐中黑白球的比例。假如在前面的一百次重复记录中，有七十次是白球，请问罐中白球所占的比例最有可能是多少？很多人马上就有答案了：70%。而其后的理论支撑是什么呢？</p>
 </blockquote>
-<p>我们假设罐中白球的比例是$p$，那么黑球的比例就是$1-p$。因为每抽一个球出来，在记录颜色之后，我们把抽出的球放回了罐中并摇匀，所以每次抽出来的球的颜 色服从同一独立分布。这里我们把一次抽出来球的颜色称为一次抽样。题目中在一百次抽样中，七十次是白球的概率$P(Data|M)$，这里Data是所有的数据，M是所给出的模型，表示每次抽出来的球是白色的概率为$p$。如果第一抽样的结果记为$x<em>1$，第二抽样的结果记为$x_2$… 那么$Data = (x_1,x_2,…,x</em>{100})$。这样，</p>
+<p>我们假设罐中白球的比例是$p$，那么黑球的比例就是$1-p$。因为每抽一个球出来，在记录颜色之后，我们把抽出的球放回了罐中并摇匀，所以每次抽出来的球的颜 色服从同一独立分布。这里我们把一次抽出来球的颜色称为一次抽样。题目中在一百次抽样中，七十次是白球的概率$P(Data|M)$，这里Data是所有的数据，M是所给出的模型，表示每次抽出来的球是白色的概率为$p$。如果第一抽样的结果记为 $x<em>1$，第二抽样的结果记为$x_2$… 那么$Data = (x_1,x_2,…,x</em>{100})$。这样，</p>
 <script type="math/tex; mode=display">
 P(Data|M)= P(x_1,x_2,...,x_{100}|M)= P(x_1|M)P(x_2|M)...P(x_{100}|M)= p^{70}(1-p)^{30}</script><p>那么p在取什么值的时候，$P(Data|M)$的值最大呢？将$p^{70}(1-p)^{30}$对$p$求导，并其等于零。</p>
 <script type="math/tex; mode=display">
@@ -520,8 +523,8 @@ P(Data|M)= P(x_1,x_2,...,x_{100}|M)= P(x_1|M)P(x_2|M)...P(x_{100}|M)= p^{70}(1-p
 　　　　</p>
 <h3 id="最大熵原理"><a href="#最大熵原理" class="headerlink" title="最大熵原理"></a>最大熵原理</h3><p>最大熵原理使概率学习中的一个准则。学习概率模型时，在所有的可能概率模型（分布）中，熵最大的模型是最好的模型。最大熵原理也可以理解成在满足约束条件的模型中选择熵最大的模型！</p>
 <script type="math/tex; mode=display">
-H(p)=-\sum_x{log(P(x))P(x)}</script><p>其中$X$服从的概率分布为$P(X)$，==$X$服从均匀分布时，熵最大==。当没有其他已知的约束时，$\Sigma{P(x)}=1$，此时按照最大熵原理，当$P(x_1)=P(x_2)=…=P(x_n)$时，熵最大；此时等概论，等概论意味着对事实的无知，因为没有更多可能的信息，所以此时的判断也是合情合理的。</p>
-<h3 id="线性分类器"><a href="#线性分类器" class="headerlink" title="线性分类器"></a>线性分类器</h3><p>线性分类器有三大类：==感知器准则函数、SVM、Fisher准则==，而贝叶斯分类器不是线性分类器。</p>
+H(p)=-\sum_x{log(P(x))P(x)}</script><p>其中$X$服从的概率分布为$P(X)$，$X$服从均匀分布时，熵最大。当没有其他已知的约束时，$\Sigma{P(x)}=1$，此时按照最大熵原理，当$P(x_1)=P(x_2)=…=P(x_n)$时，熵最大；此时等概论，等概论意味着对事实的无知，因为没有更多可能的信息，所以此时的判断也是合情合理的。</p>
+<h3 id="线性分类器"><a href="#线性分类器" class="headerlink" title="线性分类器"></a>线性分类器</h3><p>线性分类器有三大类：感知器准则函数、SVM、Fisher准则，而贝叶斯分类器不是线性分类器。</p>
 <ul>
 <li>感知器准则函数：代价函数$J=-(W*X+w_0)$，分类的准则是最小化代价函数。感知器是神经网络（NN）的基础，网上有很多介绍。</li>
 <li>SVM：支持向量机也是很经典的算法，优化目标是最大化间隔（margin），又称最大间隔分类器，是一种典型的线性分类器。（使用核函数可解决非线性问题）</li>
@@ -529,19 +532,19 @@ H(p)=-\sum_x{log(P(x))P(x)}</script><p>其中$X$服从的概率分布为$P(X)$�
 <li></li>
 </ul>
 <h3 id="NB"><a href="#NB" class="headerlink" title="NB"></a>NB</h3><p>NB的核心在于它假设向量的所有分量之间是独立的。<br>在贝叶斯理论系统中，都有一个重要的条件独立性假设：假设所有特征之间相互独立，这样才能将联合概率拆分。</p>
-<h3 id="卡特兰数"><a href="#卡特兰数" class="headerlink" title="卡特兰数"></a>卡特兰数</h3><p>卡特兰数：$C<em>{2n}^n-C</em>{2n}^{n+1}$</p>
+<h3 id="卡特兰数"><a href="#卡特兰数" class="headerlink" title="卡特兰数"></a>卡特兰数</h3><p>卡特兰数：$C<em>{2n}^n-C</em>{2n}^{n+1} $</p>
 <h3 id="相关系数"><a href="#相关系数" class="headerlink" title="相关系数"></a>相关系数</h3><p>相关系数$ \rho_{ XY}$取值在-1到1之间，</p>
 <ul>
-<li>$ \rho_{ XY}=0$时，称X,Y不相关;</li>
-<li>$ |\rho_{ XY}|=1$称X,Y完全相关，此时，X,Y之间具有线性函数关系; </li>
-<li>$ |\rho<em>{ XY}| &lt;1$ 时，X的变动引起Y的部分变动，$ \rho</em>{ XY}$的绝对值越大，X的变动引起Y的变动就越大， $ |\rho<em>{ XY}|&gt;0.8$时称为高度相关，当 `$ |\rho</em>{ XY}|&lt;0.3$时称为低度相关，其它时候为中度相关。</li>
+<li>$\rho_{ XY}=0$时，称X,Y不相关;</li>
+<li>$|\rho_{ XY}|=1$称X,Y完全相关，此时，X,Y之间具有线性函数关系; </li>
+<li>$|\rho<em>{ XY}|&lt;1$ 时，X的变动引起Y的部分变动，$\rho</em>{ XY}$的绝对值越大，X的变动引起Y的变动就越大， $ |\rho<em>{ XY}|&gt;0.8$时称为高度相关，当 $ |\rho</em>{ XY}|&lt;0.3$时称为低度相关，其它时候为中度相关。</li>
 <li>召回率就是有多少正确的被你找回来了；准确率就是你找到的有多少是正确的；(一般情况下召回率和准确率呈负相关，所以可以用F值衡量整体效果)</li>
 <li>TP(True Positive)是你判断为正确的，实际就是正确的；</li>
 <li>FP(False Positive)是你判断是错误的，实际也是错误的；</li>
 <li>TN(True Negative)是你判断为正确的，但实际是错误的；</li>
 <li>FN(False Negative)是你判断是错误的，但实际是正确的；</li>
 </ul>
-<h2 id="朴素贝叶斯-Naive-Bayes"><a href="#朴素贝叶斯-Naive-Bayes" class="headerlink" title="朴素贝叶斯 Naive Bayes"></a>朴素贝叶斯 <script type="math/tex">Naive Bayes</script></h2><h3 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h3><p>朴素贝叶斯是基于==贝叶斯定理与特征条件独立假设的分类方法==。</p>
+<h2 id="朴素贝叶斯-Naive-Bayes"><a href="#朴素贝叶斯-Naive-Bayes" class="headerlink" title="朴素贝叶斯 Naive Bayes"></a>朴素贝叶斯 <script type="math/tex">Naive Bayes</script></h2><h3 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h3><p>朴素贝叶斯是基于贝叶斯定理与特征条件独立假设的分类方法。</p>
 <p>对于由$P(X,Y)$独立产生的训练集$T={(x_1,y_1),(x_2,y_2),…, (x_N,y_N),}$而言通过朴素贝叶斯的方法学习这个联合概率分布。大致分两步：</p>
 <ol>
 <li><p>计算先验分布：</p>
@@ -1348,6 +1351,26 @@ P(Y=c_k)\prod_{j=1}^nP(X^{(j)}=x^{(j)}|Y=c_k)</script></li>
 
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
