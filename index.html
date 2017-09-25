@@ -407,17 +407,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/09/23/统计学习方法总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/09/23/统计学习方法总结/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -568,17 +557,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/05/30/Ubuntu上使用Git以及GitHub/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/30/Ubuntu上使用Git以及GitHub/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -726,17 +704,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/05/07/机器学习修炼手册/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/07/机器学习修炼手册/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -888,17 +855,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/05/06/Linux指令学习笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/06/Linux指令学习笔记/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -1048,17 +1004,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/04/30/初试HCI光场数据集/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/04/30/初试HCI光场数据集/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -1210,17 +1155,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/04/16/实习/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/04/16/实习/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -1311,6 +1245,46 @@
 
 
           
+	  <div onclick="showGitment()" id="gitment_title" class="gitment_title">显示 Gitment 评论</div>
+	  <div id="container" style="display:none"></div>
+	  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	  <script>
+	  const myTheme = {
+	    render(state, instance) {
+	      const container = document.createElement('div');
+	      container.lang = "en-US";
+	      container.className = 'gitment-container gitment-root-container';
+	      container.appendChild(instance.renderHeader(state, instance));
+	      container.appendChild(instance.renderEditor(state, instance));
+	      container.appendChild(instance.renderComments(state, instance));
+	      container.appendChild(instance.renderFooter(state, instance));
+	      return container;
+	    }
+	  }
+	  function showGitment() {
+	    $("#gitment_title").attr("style", "display:none");
+	    $("#container").attr("style", "").addClass("gitment_container");
+	    var gitment = new Gitment({
+	      id: window.location.pathname,
+	      theme: myTheme,
+	      owner: 'Vincentqyw',
+	      repo: 'https://github.com/Vincentqyw/blog-comments.git',
+	      oauth: {
+	        client_id: '1b805371619335043d04',
+	        client_secret: '10257b780b22216bbbba192cf6b2d5c00538f023'
+	      }
+	    });
+	    gitment.render('container');
+	  }
+	  </script>
+	
+
+
+
+
+  </div>
+
 
         </div>
         
@@ -1626,14 +1600,6 @@
 
   
 
-
-  
-
-    
-      <script id="dsq-count-scr" src="https://vincentqin.disqus.com/count.js" async></script>
-    
-
-    
 
   
 

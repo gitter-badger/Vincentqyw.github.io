@@ -407,17 +407,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/04/11/中国计算机学会推荐国际会议及期刊目录/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/04/11/中国计算机学会推荐国际会议及期刊目录/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -566,17 +555,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/19/日本与美国之行/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/03/19/日本与美国之行/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -724,17 +702,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/02/16/LightField光场/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/02/16/LightField光场/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -886,17 +853,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/01/16/Matlab相关问题汇总/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/01/16/Matlab相关问题汇总/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -1046,17 +1002,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/08/09/HEXO建站备忘录/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2016/08/09/HEXO建站备忘录/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -1209,17 +1154,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/08/09/AR形势与应用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2016/08/09/AR形势与应用/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -1310,6 +1244,46 @@
 
 
           
+	  <div onclick="showGitment()" id="gitment_title" class="gitment_title">显示 Gitment 评论</div>
+	  <div id="container" style="display:none"></div>
+	  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	  <script>
+	  const myTheme = {
+	    render(state, instance) {
+	      const container = document.createElement('div');
+	      container.lang = "en-US";
+	      container.className = 'gitment-container gitment-root-container';
+	      container.appendChild(instance.renderHeader(state, instance));
+	      container.appendChild(instance.renderEditor(state, instance));
+	      container.appendChild(instance.renderComments(state, instance));
+	      container.appendChild(instance.renderFooter(state, instance));
+	      return container;
+	    }
+	  }
+	  function showGitment() {
+	    $("#gitment_title").attr("style", "display:none");
+	    $("#container").attr("style", "").addClass("gitment_container");
+	    var gitment = new Gitment({
+	      id: window.location.pathname,
+	      theme: myTheme,
+	      owner: 'Vincentqyw',
+	      repo: 'https://github.com/Vincentqyw/blog-comments.git',
+	      oauth: {
+	        client_id: '1b805371619335043d04',
+	        client_secret: '10257b780b22216bbbba192cf6b2d5c00538f023'
+	      }
+	    });
+	    gitment.render('container');
+	  }
+	  </script>
+	
+
+
+
+
+  </div>
+
 
         </div>
         
@@ -1625,14 +1599,6 @@
 
   
 
-
-  
-
-    
-      <script id="dsq-count-scr" src="https://vincentqin.disqus.com/count.js" async></script>
-    
-
-    
 
   
 
