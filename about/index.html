@@ -108,10 +108,10 @@
 <meta name="description" content="Yanwen Qin (秦延文)  BIOGRAPHYMr. Qin received the B.E. degree from the Department of Automation, Chongqing University of Posts and Telecommunications, Chongqing, China in 2015. He is currently pursuing">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Vincent Qin | 秦延文">
-<meta property="og:url" content="http://www.vincentqin.tech/about/index.html">
+<meta property="og:url" content="https://www.vincentqin.tech/about/index.html">
 <meta property="og:site_name" content="Vincent Qin | 秦延文">
 <meta property="og:description" content="Yanwen Qin (秦延文)  BIOGRAPHYMr. Qin received the B.E. degree from the Department of Automation, Chongqing University of Posts and Telecommunications, Chongqing, China in 2015. He is currently pursuing">
-<meta property="og:updated_time" content="2017-09-24T07:14:30.397Z">
+<meta property="og:updated_time" content="2017-09-25T07:12:38.219Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vincent Qin | 秦延文">
 <meta name="twitter:description" content="Yanwen Qin (秦延文)  BIOGRAPHYMr. Qin received the B.E. degree from the Department of Automation, Chongqing University of Posts and Telecommunications, Chongqing, China in 2015. He is currently pursuing">
@@ -142,7 +142,7 @@
 
 
 
-  <link rel="canonical" href="http://www.vincentqin.tech/about/"/>
+  <link rel="canonical" href="https://www.vincentqin.tech/about/"/>
 
 
 
@@ -354,7 +354,7 @@
 <li>Department of Automation, <a href="http://www.tsinghua.edu.cn/publish/newthuen/" target="_blank" rel="external">Tsinghua University</a>, China </li>
 <li>Email: <a href="mailto:qin123yw@163.com" target="_blank" rel="external">qin123yw@163.com</a> (alpha.vincentqin@gmail.com)</li>
 <li>Github: <a href="https://github.com/Vincentqyw" target="_blank" rel="external">https://github.com/Vincentqyw</a></li>
-<li>Homepage: <a href="http://www.vincentqin.tech">http://www.vincentqin.tech</a></li>
+<li>Homepage: <a href="https://www.vincentqin.tech">https://www.vincentqin.tech</a></li>
 </ul>
 <hr>
 <h2 id="RESEARCH-INTEREST"><a href="#RESEARCH-INTEREST" class="headerlink" title="RESEARCH INTEREST"></a>RESEARCH INTEREST</h2><ul>
@@ -427,46 +427,6 @@
 
 
           
-	  <div onclick="showGitment()" id="gitment_title" class="gitment_title">显示 Gitment 评论</div>
-	  <div id="container" style="display:none"></div>
-	  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-	  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-	  <script>
-	  const myTheme = {
-	    render(state, instance) {
-	      const container = document.createElement('div');
-	      container.lang = "en-US";
-	      container.className = 'gitment-container gitment-root-container';
-	      container.appendChild(instance.renderHeader(state, instance));
-	      container.appendChild(instance.renderEditor(state, instance));
-	      container.appendChild(instance.renderComments(state, instance));
-	      container.appendChild(instance.renderFooter(state, instance));
-	      return container;
-	    }
-	  }
-	  function showGitment() {
-	    $("#gitment_title").attr("style", "display:none");
-	    $("#container").attr("style", "").addClass("gitment_container");
-	    var gitment = new Gitment({
-	      id: window.location.pathname,
-	      theme: myTheme,
-	      owner: 'Vincentqyw',
-	      repo: 'https://github.com/Vincentqyw/blog-comments.git',
-	      oauth: {
-	        client_id: '1b805371619335043d04',
-	        client_secret: '10257b780b22216bbbba192cf6b2d5c00538f023'
-	      }
-	    });
-	    gitment.render('container');
-	  }
-	  </script>
-	
-
-
-
-
-  </div>
-
 
         </div>
         
@@ -795,6 +755,27 @@
 
 
 
+
+
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    
+        <script type="text/javascript">
+            var gitment = new Gitment({
+                id: document.location.href, 
+                owner: 'Vincentqyw',
+                repo: 'https://github.com/Vincentqyw/blog-comments.git',
+                oauth: {
+                    client_id: '1b805371619335043d04',
+                    client_secret: '10257b780b22216bbbba192cf6b2d5c00538f023',
+                }});
+            gitment.render('gitment-container');
+        </script>
+    
 
 
   
