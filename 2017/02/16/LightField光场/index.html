@@ -708,7 +708,8 @@ raw.lfp就是我们需要的原文件，之后呢用MATLAB光场工具包转化�
   <div class="comments" id="comments">
     
       
-        <div id="gitment-container"></div>
+        <div onclick="ShowGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
       
 
     
@@ -1081,15 +1082,19 @@ raw.lfp就是我们需要的原文件，之后呢用MATLAB光场工具包转化�
     <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
     
         <script type="text/javascript">
-            var gitment = new Gitment({
-                id: document.location.href, 
-                owner: 'Vincentqyw',
-                repo: 'https://github.com/Vincentqyw/blog-comments.git',
-                oauth: {
-                    client_id: '1b805371619335043d04',
-                    client_secret: '10257b780b22216bbbba192cf6b2d5c00538f023',
-                }});
-            gitment.render('gitment-container');
+            function ShowGitment(){
+                document.getElementById("gitment-display-button").style.display = "none";
+                document.getElementById("gitment-container").style.display = "block";
+                var gitment = new Gitment({
+                    id: document.location.href, 
+                    owner: '18531182',
+                    repo: 'blog-comments',
+                    oauth: {
+                        client_id: '1b805371619335043d04',
+                        client_secret: '10257b780b22216bbbba192cf6b2d5c00538f023',
+                    }});
+                gitment.render('gitment-container');
+            }
         </script>
     
 
