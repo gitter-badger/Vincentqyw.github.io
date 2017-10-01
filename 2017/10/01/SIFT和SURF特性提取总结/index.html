@@ -107,12 +107,15 @@
 
 
 
+<meta name="description" content="SIFT（Scale-invariant feature transform）是一种检测局部特征的算法，该算法通过求一幅图中的特征点（interest points,or corner points）及其有关scale 和 orientation 的描述子得到特征并进行图像特征点匹配">
 <meta name="keywords" content="sift,surf,特征提取">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SIFT和SURF特性提取总结">
 <meta property="og:url" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/index.html">
 <meta property="og:site_name" content="Vincent Qin | 秦延文">
-<meta property="og:image" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/lena.jpg">
+<meta property="og:description" content="SIFT（Scale-invariant feature transform）是一种检测局部特征的算法，该算法通过求一幅图中的特征点（interest points,or corner points）及其有关scale 和 orientation 的描述子得到特征并进行图像特征点匹配">
+<meta property="og:image" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/match_before.png">
+<meta property="og:image" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/matches.png">
 <meta property="og:image" content="http://img.my.csdn.net/uploads/201207/09/1341794478_9911.png">
 <meta property="og:image" content="http://img.my.csdn.net/uploads/201301/09/1357668480_6244.jpg">
 <meta property="og:image" content="http://img.my.csdn.net/uploads/201207/09/1341799138_5040.jpg">
@@ -121,10 +124,11 @@
 <meta property="og:image" content="http://simtalk.cn/img/%E7%89%B9%E5%BE%81%E4%B8%8E%E5%8C%B9%E9%85%8D/diff.png">
 <meta property="og:image" content="http://simtalk.cn/img/%E7%89%B9%E5%BE%81%E4%B8%8E%E5%8C%B9%E9%85%8D/direction.jpg">
 <meta property="og:image" content="http://img.blog.csdn.net/20160920234200879">
-<meta property="og:updated_time" content="2017-10-01T03:02:57.816Z">
+<meta property="og:updated_time" content="2017-10-01T12:36:56.021Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SIFT和SURF特性提取总结">
-<meta name="twitter:image" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/lena.jpg">
+<meta name="twitter:description" content="SIFT（Scale-invariant feature transform）是一种检测局部特征的算法，该算法通过求一幅图中的特征点（interest points,or corner points）及其有关scale 和 orientation 的描述子得到特征并进行图像特征点匹配">
+<meta name="twitter:image" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/match_before.png">
 
 
 
@@ -403,7 +407,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-10-01T11:02:57+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2017-10-01T20:36:56+08:00">
                 2017-10-01
               </time>
             
@@ -446,24 +450,28 @@
       
 
       
-        <p><center><img src="/2017/10/01/SIFT和SURF特性提取总结/lena.jpg" alt="lena" title="lena"></center><br><a id="more"></a></p>
-<h2 id="什么是sift"><a href="#什么是sift" class="headerlink" title="什么是sift"></a>什么是sift</h2><blockquote>
-<p>SIFT（Scale-invariant feature transform）是一种检测局部特征的算法，该算法通过求一幅图中的特征点（interest points,or corner points）及其有关==scale== 和 ==orientation== 的描述子得到特征并进行图像特征点匹配</p>
+        <center><img src="/2017/10/01/SIFT和SURF特性提取总结/match_before.png" alt="Lane+One Punch Man" title="Lane+One Punch Man"></center>
+
+<blockquote>
+<p>SIFT（Scale-invariant feature transform）是一种检测局部特征的算法，该算法通过求一幅图中的特征点（interest points,or corner points）及其有关<strong>scale</strong> 和 <strong>orientation</strong> 的描述子得到特征并进行图像特征点匹配</p>
 </blockquote>
+<a id="more"></a>
+<h2 id="什么是sift"><a href="#什么是sift" class="headerlink" title="什么是sift"></a>什么是sift</h2><p>先看看上图利用sift进行匹配的结果：</p>
+<p><center><img src="/2017/10/01/SIFT和SURF特性提取总结/matches.png" alt="Lane+One Punch Man Matches Result" title="Lane+One Punch Man Matches Result"></center><br>是不是还可以，那么我就简单的解释下什么事sift吧哈哈哈哈哈哈~</p>
 <h3 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h3><p>SIFT特征具有尺度不变性，旋转不变性，光照不变性。</p>
-<h3 id="实现流程"><a href="#实现流程" class="headerlink" title="实现流程"></a>实现流程</h3><h4 id="构建尺度空间"><a href="#构建尺度空间" class="headerlink" title="构建尺度空间"></a>构建尺度空间</h4><p>尺度空间的目的是模拟图像的多尺度特性。<br>==高斯卷积核是实现尺度变换的唯一线性核==，于是 一副二维图像的尺度空间定义为：</p>
+<h3 id="实现流程"><a href="#实现流程" class="headerlink" title="实现流程"></a>实现流程</h3><h4 id="构建尺度空间"><a href="#构建尺度空间" class="headerlink" title="构建尺度空间"></a>构建尺度空间</h4><p>尺度空间的目的是模拟图像的多尺度特性。<br><strong>高斯卷积核是实现尺度变换的唯一线性核</strong>，于是 一副二维图像的尺度空间定义为：</p>
 <script type="math/tex; mode=display">
 L(x,y,\sigma)=G(x,y,\sigma)*I(x,y)</script><p>其中的<script type="math/tex">G(x,y,\sigma)</script>是尺度可以发生变化的高斯函数<script type="math/tex">G(x,y,\sigma)=\frac{1}{2\pi{\sigma}^2}e^{-\frac{x^2+y^2}{2{\sigma}^2}}</script>。<script type="math/tex">(x,y)</script>表示空间坐标，<script type="math/tex">\sigma</script>是尺度系数，描述了图像的模糊程度。<br>为了能够更为有效的提取出特征点，提出了DOG（高斯差分尺度空间）的概念。通过不同尺度下的高斯差分核与图像卷积形成：</p>
 <script type="math/tex; mode=display">
 D(x,y,\sigma)=(G(x,y,k\sigma)-G(x,y,\sigma))*I(x,y) 
 =L(x,y,k\sigma)-L(x,y,\sigma)</script><p><img src="http://img.my.csdn.net/uploads/201207/09/1341794478_9911.png" alt=""></p>
-<p>图像金字塔的建立：为了实现尺度不变特性，对于每一幅图像<script type="math/tex">I(x,y)</script>，分成==子八度（octave）==，第一个子八度的scale为原图大小，后面每个octave为上一个octave降采样的结果，即原图的1/4（长宽分别减半），构成下一个子八度（高一层金字塔）。<br><img src="http://img.my.csdn.net/uploads/201301/09/1357668480_6244.jpg" alt=""></p>
+<p>图像金字塔的建立：为了实现尺度不变特性，对于每一幅图像<script type="math/tex">I(x,y)</script>，分成<strong>子八度（octave）</strong>，第一个子八度的scale为原图大小，后面每个octave为上一个octave降采样的结果，即原图的1/4（长宽分别减半），构成下一个子八度（高一层金字塔）。<br><img src="http://img.my.csdn.net/uploads/201301/09/1357668480_6244.jpg" alt=""></p>
 <p>由图片size决定建几个塔，每塔几层图像(S一般为3-5层)。0塔的第0层是原始图像(或你double后的图像)，往上每一层是对其下一层进行Laplacian变换（高斯卷积，其中σ值渐大，例如可以是σ, k<em>σ, k</em>k*σ…），直观上看来越往上图片越模糊。塔间的图片是降采样关系，例如1塔的第0层可以由0塔的第3层down sample得到，然后进行与0塔类似的高斯卷积操作。</p>
 <h4 id="DoG找到关键点-lt-检测DOG尺度空间极值点-gt"><a href="#DoG找到关键点-lt-检测DOG尺度空间极值点-gt" class="headerlink" title="DoG找到关键点&lt;检测DOG尺度空间极值点&gt;"></a>DoG找到关键点&lt;检测DOG尺度空间极值点&gt;</h4><p>为了寻找尺度空间的极值点，每一个采样点要和它所有的相邻点比较，看其是否比它的图像域和尺度域的相邻点大或者小。如图所示，中间的检测点和它同尺度的8个相邻点和上下相邻尺度对应的9×2个点共26个点比较，以确保在尺度空间和二维图像空间都检测到极值点。 一个点如果在DOG尺度空间本层以及上下两层的26个领域中是最大或最小值时，就认为该点是图像在该尺度下的一个特征点,如图所示。<em>使用Laplacian of Gaussian能够很好地找到找到图像中的兴趣点，但是需要大量的计算量，所以使用Difference of Gaussian图像的极大极小值近似寻找特征点.DOG算子计算简单，是尺度归一化的LoG算子的近似</em>。<br><img src="http://img.my.csdn.net/uploads/201207/09/1341799138_5040.jpg" alt=""></p>
 <h4 id="去除不好的点"><a href="#去除不好的点" class="headerlink" title="去除不好的点"></a>去除不好的点</h4><blockquote>
 <p>这一步本质上要去掉DoG局部曲率非常不对称的像素。通过拟和三维二次函数以精确确定关键点的位置和尺度（达到亚像素精度），同时去除低对比度的关键点和不稳定的边缘响应点(因为DoG算子会产生较强的边缘响应)，以增强匹配稳定性、提高抗噪声能力，在这里使用近似Harris Corner检测器。</p>
 </blockquote>
-<h4 id="给特征点赋值一个128维方向参数并描述"><a href="#给特征点赋值一个128维方向参数并描述" class="headerlink" title="给特征点赋值一个128维方向参数并描述"></a>给特征点赋值一个128维方向参数并描述</h4><p>前面的几个步骤确定了特征点到底在哪里，此步骤是为了==描述==特征点。<br>(x,y)处梯度的模值和方向公式为：</p>
+<h4 id="给特征点赋值一个128维方向参数并描述"><a href="#给特征点赋值一个128维方向参数并描述" class="headerlink" title="给特征点赋值一个128维方向参数并描述"></a>给特征点赋值一个128维方向参数并描述</h4><p>前面的几个步骤确定了特征点到底在哪里，此步骤是为了<strong>描述特征点</strong>。<br>(x,y)处梯度的模值和方向公式为：</p>
 <script type="math/tex; mode=display">
 m(x,y)=\sqrt{(L(x+1,y)-L(x-1,y))^2+(L(x,y+1)-L(x,y-1))^2}</script><script type="math/tex; mode=display">
 \theta(x,y)=tan^{-1}\left(\frac{L(x,y+1)-L(x,y-1)}{L(x+1,y)-L(x-1,y)}\right)</script><blockquote>
@@ -471,15 +479,16 @@ m(x,y)=\sqrt{(L(x+1,y)-L(x-1,y))^2+(L(x,y+1)-L(x,y-1))^2}</script><script type="
 </blockquote>
 <p>其中L所用的尺度为每个关键点各自所在的尺度。至此，图像的关键点已经检测完毕，每个关键点有三个信息：<strong>位置，所处尺度、方向</strong>，由此可以确定一个SIFT特征区域。</p>
 <p>在实际计算时，我们在以关键点为中心的邻域窗口内采样，并用直方图统计邻域像素的梯度方向。梯度直方图的范围是0～360度，其中每45度一个柱，总共8个柱, 或者每10度一个柱，总共36个柱。Lowe论文中还提到要使用高斯函数对直方图进行平滑，减少突变的影响。直方图的峰值则代表了该关键点处邻域梯度的主方向，即作为该关键点的方向。直方图中的峰值就是主方向，其他的达到最大值80%的方向可作为辅助方向。</p>
-<p>计算keypoint周围的16<em>16的window中每一个像素的梯度，而且使用高斯下降函数降低远离中心的权重。图左部分的中央为当前关键点的位置，每个小格代表关键点邻域所在尺度空间的一个像素，利用公式求得每个像素的梯度幅值与梯度方向，箭头方向代表该像素的梯度方向，箭头长度代表梯度模值，然后用高斯窗口对其进行加权运算。<br><img src="http://img.my.csdn.net/uploads/201206/06/1338991155_3102.jpg" alt=""><br>该图是8\</em>8的区域计算得到2*2描述子向量的过程。但是在实际中使用的是在16*16的区域计算得到4*4的特征描述子，如下图：</p>
+<p>计算keypoint周围的16*16的window中每一个像素的梯度，而且使用高斯下降函数降低远离中心的权重。图左部分的中央为当前关键点的位置，每个小格代表关键点邻域所在尺度空间的一个像素，利用公式求得每个像素的梯度幅值与梯度方向，箭头方向代表该像素的梯度方向，箭头长度代表梯度模值，然后用高斯窗口对其进行加权运算。<br><img src="http://img.my.csdn.net/uploads/201206/06/1338991155_3102.jpg" alt=""><br>该图是8*8的区域计算得到2*2描述子向量的过程。但是在实际中使用的是在16*16的区域计算得到4*4的特征描述子，如下图：</p>
 <p><img src="http://img.my.csdn.net/uploads/201206/06/1338988122_4741.jpg" alt=""></p>
-<p>这样就可以对每个feature形成一个4*4*8=128维的描述子，每一维都可以表示4*4个格子中一个的scale/orientation。将这个向量==归一化之后，就进一步去除了光照的影响==。 </p>
+<p>这样就可以对每个feature形成一个4*4*8=128维的描述子，每一维都可以表示4<em>4个格子中一个的scale/orientation。将这个<em>*向量归一化之后，就进一步去除了光照的影响</em></em>。 </p>
 <h3 id="sift的缺点"><a href="#sift的缺点" class="headerlink" title="sift的缺点"></a>sift的缺点</h3><p>SIFT在图像的不变特征提取方面拥有无与伦比的优势，但并不完美，仍然存在：</p>
 <ol>
 <li>实时性不高。</li>
 <li>有时特征点较少。</li>
 <li>对边缘光滑的目标无法准确提取特征点。</li>
 </ol>
+<p>这里是<a href="http://www.cs.ubc.ca/~lowe/home.html" target="_blank" rel="external">David Lowe大神</a>做的一个<a href="http://www.cs.ubc.ca/~lowe/keypoints/" target="_blank" rel="external">Demo Software: SIFT Keypoint Detector</a>.</p>
 <h2 id="SURF-简介"><a href="#SURF-简介" class="headerlink" title="SURF 简介"></a>SURF 简介</h2><p>参考了好友整理的一篇文章<a href="http://simtalk.cn/2017/08/18/%E7%89%B9%E5%BE%81%E4%B8%8E%E5%8C%B9%E9%85%8D/#ORB" target="_blank" rel="external">特征与匹配</a></p>
 <ol>
 <li>整体的思路就是将计算DOG的一整套东西来检测关键点的理论替换成了利用hessian矩阵来检测关键点，因为<em>当Hessian矩阵的判别式取得局部极大值时，判定当前点是比周围邻域内其他点更亮或更暗的点，由此来定位关键点的位置。</em> \<br>上述过程要进行Hessian判别式的计算，可以采用box filter的方式进行加速。</li>
@@ -900,11 +909,11 @@ m(x,y)=\sqrt{(L(x+1,y)-L(x-1,y))^2+(L(x,y+1)-L(x,y-1))^2}</script><script type="
   
 
 
-
-
-
-
   
+
+
+
+
 
 
 
@@ -927,7 +936,7 @@ m(x,y)=\sqrt{(L(x+1,y)-L(x-1,y))^2+(L(x,y+1)-L(x,y-1))^2}</script><script type="
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
   
-  <script type="text/javascript" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
