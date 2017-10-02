@@ -117,7 +117,7 @@
 <meta property="og:image" content="https://www.vincentqin.tech/2017/10/02/降维之PCA主成分分析原理/explain.gif">
 <meta property="og:image" content="https://www.vincentqin.tech/2017/10/02/降维之PCA主成分分析原理/centering_1.jpg">
 <meta property="og:image" content="https://www.vincentqin.tech/2017/10/02/降维之PCA主成分分析原理/centering_2.jpg">
-<meta property="og:updated_time" content="2017-10-02T07:07:49.042Z">
+<meta property="og:updated_time" content="2017-10-02T07:11:22.099Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="降维之PCA主成分分析原理">
 <meta name="twitter:image" content="https://www.vincentqin.tech/2017/10/02/降维之PCA主成分分析原理/logo.png">
@@ -399,7 +399,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-10-02T15:07:49+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2017-10-02T15:11:22+08:00">
                 2017-10-02
               </time>
             
@@ -478,7 +478,7 @@
 <script type="math/tex; mode=display">
 \max u_1^T\left(XX^T\right)u_1=\max ||X^Tu_1||_2^2</script><h2 id="优化函数"><a href="#优化函数" class="headerlink" title="优化函数"></a>优化函数</h2><script type="math/tex; mode=display">
 max||Wx||_2</script><script type="math/tex; mode=display">
-s.t.  W^TW=I</script><p>解释：==最大化方差同时最小化协方差==（PCA本质上是将方差最大的方向作为主要特征，并且在各个正交方向上将数据“离相关”）。最大化方差意味着，使得每个样本点在每个维度上与均值有很大差异，就是说非常有个性，有个性才能分辨出来；同时协方差越小的话表明样本之间的互相影响就非常小，如果协方差是0的话，表示两个字段完全独立。</p>
+s.t.  W^TW=I</script><p>解释：<strong>最大化方差同时最小化协方差</strong>（PCA本质上是将方差最大的方向作为主要特征，并且在各个正交方向上将数据“离相关”）。最大化方差意味着，使得每个样本点在每个维度上与均值有很大差异，就是说非常有个性，有个性才能分辨出来；同时协方差越小的话表明样本之间的互相影响就非常小，如果协方差是0的话，表示两个字段完全独立。</p>
 <center><img src="/2017/10/02/降维之PCA主成分分析原理/explain.gif" alt="explain.gif" title=""></center>
 
 <p>寻找协方差矩阵的特征向量和特征值就等价于拟合一条能保留最大方差的直线或主成分。因为特征向量追踪到了主成分的方向，而最大方差和协方差的轴线表明了数据最容易改变的方向。根据上述推导，我们发现达到优化目标就等价于将协方差矩阵对角化：即除对角线外的其它元素化为0，并且在对角线上将特征值按大小从上到下排列。协方差矩阵作为实对称矩阵，其主要性质之一就是可以正交对角化，因此就一定可以分解为特征向量和特征值。</p>
