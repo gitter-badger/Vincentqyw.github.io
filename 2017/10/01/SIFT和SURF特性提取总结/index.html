@@ -114,8 +114,8 @@
 <meta property="og:url" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/index.html">
 <meta property="og:site_name" content="Vincent Qin | 秦延文">
 <meta property="og:description" content="SIFT（Scale-invariant feature transform）是一种检测局部特征的算法，该算法通过求一幅图中的特征点（interest points,or corner points）及其有关scale 和 orientation 的描述子得到特征并进行图像特征点匹配">
-<meta property="og:image" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/match_before.png">
-<meta property="og:image" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/matches.png">
+<meta property="og:image" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/match_before_v2.png">
+<meta property="og:image" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/matches_adjust_contrast.png">
 <meta property="og:image" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/scale_space.png">
 <meta property="og:image" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/DoG.jpg">
 <meta property="og:image" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/DoG_Space.jpg">
@@ -124,11 +124,11 @@
 <meta property="og:image" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/diff.png">
 <meta property="og:image" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/direction.jpg">
 <meta property="og:image" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/diff_more.jpg">
-<meta property="og:updated_time" content="2017-10-01T16:12:24.580Z">
+<meta property="og:updated_time" content="2017-10-02T03:12:03.863Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SIFT和SURF特性提取总结">
 <meta name="twitter:description" content="SIFT（Scale-invariant feature transform）是一种检测局部特征的算法，该算法通过求一幅图中的特征点（interest points,or corner points）及其有关scale 和 orientation 的描述子得到特征并进行图像特征点匹配">
-<meta name="twitter:image" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/match_before.png">
+<meta name="twitter:image" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/match_before_v2.png">
 
 
 
@@ -407,7 +407,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-10-02T00:12:24+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2017-10-02T11:12:03+08:00">
                 2017-10-02
               </time>
             
@@ -450,16 +450,16 @@
       
 
       
-        <center><img src="/2017/10/01/SIFT和SURF特性提取总结/match_before.png" alt="Lane+One Punch Man" title="Lane+One Punch Man"></center>
+        <center><img src="/2017/10/01/SIFT和SURF特性提取总结/match_before_v2.png" alt="Lane+One Punch Man" title="Lane+One Punch Man"></center>
 
 <blockquote>
 <p>SIFT（Scale-invariant feature transform）是一种检测局部特征的算法，该算法通过求一幅图中的特征点（interest points,or corner points）及其有关<strong>scale</strong> 和 <strong>orientation</strong> 的描述子得到特征并进行图像特征点匹配</p>
 </blockquote>
 <a id="more"></a>
 <h2 id="什么是sift"><a href="#什么是sift" class="headerlink" title="什么是sift"></a>什么是sift</h2><p>先看看上图利用sift进行匹配的结果：</p>
-<center><img src="/2017/10/01/SIFT和SURF特性提取总结/matches.png" alt="Lane+One Punch Man Matches Result" title="Lane+One Punch Man Matches Result"></center>
+<center><img src="/2017/10/01/SIFT和SURF特性提取总结/matches_adjust_contrast.png" alt="Lane+One Punch Man Matches Result" title="Lane+One Punch Man Matches Result"></center>
 
-<p>是不是还可以，那么我就简单的解释下什么事sift吧哈哈哈哈哈哈~</p>
+<p>这个结果应该可以很好的解释sift的尺度、旋转以及光照不变性。接下来就介绍一下这个神奇的算法的奥义。</p>
 <h3 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h3><p>SIFT特征具有尺度不变性，旋转不变性，光照不变性。</p>
 <h3 id="实现流程"><a href="#实现流程" class="headerlink" title="实现流程"></a>实现流程</h3><h4 id="构建尺度空间"><a href="#构建尺度空间" class="headerlink" title="构建尺度空间"></a>构建尺度空间</h4><p>尺度空间的目的是模拟图像的多尺度特性。<br><strong>高斯卷积核是实现尺度变换的唯一线性核</strong>，于是 一副二维图像的尺度空间定义为：</p>
 <script type="math/tex; mode=display">
@@ -494,7 +494,7 @@ m(x,y)=\sqrt{(L(x+1,y)-L(x-1,y))^2+(L(x,y+1)-L(x,y-1))^2}</script><script type="
 <p>该图是8*8的区域计算得到2*2描述子向量的过程。但是在实际中使用的是在16*16的区域计算得到4*4的特征描述子，如下图：</p>
 <center><img src="/2017/10/01/SIFT和SURF特性提取总结/descriptor.jpg" alt="descriptor" title="descriptor"></center>
 
-<p>这样就可以对每个feature形成一个4*4*8=128维的描述子，每一维都可以表示4<em>4个格子中一个的scale/orientation。将这个<em>*向量归一化之后，就进一步去除了光照的影响</em></em>。</p>
+<p>这样就可以对每个feature形成一个4*4*8=128维的描述子，每一维都可以表示4*4个格子中一个的scale/orientation。将这个<strong>向量归一化之后，就进一步去除了光照的影响</strong>。</p>
 <h3 id="sift的缺点"><a href="#sift的缺点" class="headerlink" title="sift的缺点"></a>sift的缺点</h3><p>SIFT在图像的不变特征提取方面拥有无与伦比的优势，但并不完美，仍然存在：</p>
 <ol>
 <li>实时性不高。</li>
