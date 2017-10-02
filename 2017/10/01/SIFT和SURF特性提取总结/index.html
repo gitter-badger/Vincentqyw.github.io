@@ -124,7 +124,7 @@
 <meta property="og:image" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/diff.png">
 <meta property="og:image" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/direction.jpg">
 <meta property="og:image" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/diff_more.jpg">
-<meta property="og:updated_time" content="2017-10-02T03:12:03.863Z">
+<meta property="og:updated_time" content="2017-10-02T05:11:49.741Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SIFT和SURF特性提取总结">
 <meta name="twitter:description" content="SIFT（Scale-invariant feature transform）是一种检测局部特征的算法，该算法通过求一幅图中的特征点（interest points,or corner points）及其有关scale 和 orientation 的描述子得到特征并进行图像特征点匹配">
@@ -407,7 +407,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-10-02T11:12:03+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2017-10-02T13:11:49+08:00">
                 2017-10-02
               </time>
             
@@ -474,7 +474,7 @@ D(x,y,\sigma)=(G(x,y,k\sigma)-G(x,y,\sigma))*I(x,y)
 <center><img src="/2017/10/01/SIFT和SURF特性提取总结/DoG.jpg" alt="DoG" title="DoG"></center>
 
 <p>由图片size决定建几个塔，每塔几层图像(S一般为3-5层)。0塔的第0层是原始图像(或你double后的图像)，往上每一层是对其下一层进行Laplacian变换（高斯卷积，其中σ值渐大，例如可以是σ, k*σ, k*k*σ…），直观上看来越往上图片越模糊。塔间的图片是降采样关系，例如1塔的第0层可以由0塔的第3层down sample得到，然后进行与0塔类似的高斯卷积操作。</p>
-<h4 id="DoG找到关键点-lt-检测DOG尺度空间极值点-gt"><a href="#DoG找到关键点-lt-检测DOG尺度空间极值点-gt" class="headerlink" title="DoG找到关键点&lt;检测DOG尺度空间极值点&gt;"></a>DoG找到关键点&lt;检测DOG尺度空间极值点&gt;</h4><p>为了寻找尺度空间的极值点，每一个采样点要和它所有的相邻点比较，看其是否比它的图像域和尺度域的相邻点大或者小。如图所示，中间的检测点和它同尺度的8个相邻点和上下相邻尺度对应的9×2个点共26个点比较，以确保在尺度空间和二维图像空间都检测到极值点。 一个点如果在DOG尺度空间本层以及上下两层的26个领域中是最大或最小值时，就认为该点是图像在该尺度下的一个特征点,如图所示。使用Laplacian of Gaussian能够很好地找到找到图像中的兴趣点，但是需要大量的计算量，所以使用Difference of Gaussian图像的极大极小值近似寻找特征点.DOG算子计算简单，是尺度归一化的LoG算子的近似。</p>
+<h4 id="在DoG空间找到关键点"><a href="#在DoG空间找到关键点" class="headerlink" title="在DoG空间找到关键点"></a>在DoG空间找到关键点</h4><p>为了寻找尺度空间的极值点，每一个采样点要和它所有的相邻点比较，看其是否比它的图像域和尺度域的相邻点大或者小。如图所示，中间的检测点和它同尺度的8个相邻点和上下相邻尺度对应的9×2个点共26个点比较，以确保在尺度空间和二维图像空间都检测到极值点。 一个点如果在DOG尺度空间本层以及上下两层的26个领域中是最大或最小值时，就认为该点是图像在该尺度下的一个特征点,如图所示。使用Laplacian of Gaussian能够很好地找到找到图像中的兴趣点，但是需要大量的计算量，所以使用Difference of Gaussian图像的极大极小值近似寻找特征点.DOG算子计算简单，是尺度归一化的LoG算子的近似。</p>
 <center><img src="/2017/10/01/SIFT和SURF特性提取总结/DoG_Space.jpg" alt="DoG Space" title="DoG Space"></center>
 
 <h4 id="去除不好的点"><a href="#去除不好的点" class="headerlink" title="去除不好的点"></a>去除不好的点</h4><blockquote>
@@ -501,7 +501,7 @@ m(x,y)=\sqrt{(L(x+1,y)-L(x-1,y))^2+(L(x,y+1)-L(x,y-1))^2}</script><script type="
 <li>有时特征点较少。</li>
 <li>对边缘光滑的目标无法准确提取特征点。</li>
 </ol>
-<p>这里是<a href="http://www.cs.ubc.ca/~lowe/home.html" target="_blank" rel="external">David Lowe大神</a>做的一个<a href="http://www.cs.ubc.ca/~lowe/keypoints/" target="_blank" rel="external">Demo Software: SIFT Keypoint Detector</a>.</p>
+<p>PS: 论文见这里：<a href="http://www.cs.ubc.ca/~lowe/papers/ijcv04.pdf" target="_blank" rel="external">Distinctive Image Features from Scale-Invariant Keypoints</a><br>这里是<a href="http://www.cs.ubc.ca/~lowe/home.html" target="_blank" rel="external">David Lowe大神</a>做的一个<a href="http://www.cs.ubc.ca/~lowe/keypoints/" target="_blank" rel="external">Demo Software: SIFT Keypoint Detector</a>.</p>
 <h2 id="SURF-简介"><a href="#SURF-简介" class="headerlink" title="SURF 简介"></a>SURF 简介</h2><p>参考了好友整理的一篇文章<a href="http://simtalk.cn/2017/08/18/%E7%89%B9%E5%BE%81%E4%B8%8E%E5%8C%B9%E9%85%8D/#ORB" target="_blank" rel="external">特征与匹配</a></p>
 <ol>
 <li>整体的思路就是将计算DOG的一整套东西来检测关键点的理论替换成了利用hessian矩阵来检测关键点，因为当Hessian矩阵的判别式取得局部极大值时，判定当前点是比周围邻域内其他点更亮或更暗的点，由此来定位关键点的位置。<br>上述过程要进行Hessian判别式的计算，可以采用box filter的方式进行加速。</li>
@@ -840,7 +840,7 @@ m(x,y)=\sqrt{(L(x+1,y)-L(x-1,y))^2+(L(x,y+1)-L(x,y-1))^2}</script><script type="
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是sift"><span class="nav-number">1.</span> <span class="nav-text">什么是sift</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法描述"><span class="nav-number">1.1.</span> <span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现流程"><span class="nav-number">1.2.</span> <span class="nav-text">实现流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#构建尺度空间"><span class="nav-number">1.2.1.</span> <span class="nav-text">构建尺度空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DoG找到关键点-lt-检测DOG尺度空间极值点-gt"><span class="nav-number">1.2.2.</span> <span class="nav-text">DoG找到关键点<检测DOG尺度空间极值点></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#去除不好的点"><span class="nav-number">1.2.3.</span> <span class="nav-text">去除不好的点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#给特征点赋值一个128维方向参数并描述"><span class="nav-number">1.2.4.</span> <span class="nav-text">给特征点赋值一个128维方向参数并描述</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sift的缺点"><span class="nav-number">1.3.</span> <span class="nav-text">sift的缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SURF-简介"><span class="nav-number">2.</span> <span class="nav-text">SURF 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是sift"><span class="nav-number">1.</span> <span class="nav-text">什么是sift</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法描述"><span class="nav-number">1.1.</span> <span class="nav-text">算法描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现流程"><span class="nav-number">1.2.</span> <span class="nav-text">实现流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#构建尺度空间"><span class="nav-number">1.2.1.</span> <span class="nav-text">构建尺度空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在DoG空间找到关键点"><span class="nav-number">1.2.2.</span> <span class="nav-text">在DoG空间找到关键点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#去除不好的点"><span class="nav-number">1.2.3.</span> <span class="nav-text">去除不好的点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#给特征点赋值一个128维方向参数并描述"><span class="nav-number">1.2.4.</span> <span class="nav-text">给特征点赋值一个128维方向参数并描述</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sift的缺点"><span class="nav-number">1.3.</span> <span class="nav-text">sift的缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SURF-简介"><span class="nav-number">2.</span> <span class="nav-text">SURF 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
