@@ -124,7 +124,7 @@
 <meta property="og:image" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/diff.png">
 <meta property="og:image" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/direction.jpg">
 <meta property="og:image" content="https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/diff_more.jpg">
-<meta property="og:updated_time" content="2017-10-02T07:05:36.280Z">
+<meta property="og:updated_time" content="2017-10-08T12:21:16.223Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SIFT和SURF特性提取总结">
 <meta name="twitter:description" content="SIFT（Scale-invariant feature transform）是一种检测局部特征的算法，该算法通过求一幅图中的特征点（interest points,or corner points）及其有关scale 和 orientation 的描述子得到特征并进行图像特征点匹配">
@@ -407,8 +407,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-10-02T15:05:36+08:00">
-                2017-10-02
+              <time title="更新于" itemprop="dateModified" datetime="2017-10-08T20:21:16+08:00">
+                2017-10-08
               </time>
             
           </span>
@@ -505,17 +505,13 @@ m(x,y)=\sqrt{(L(x+1,y)-L(x-1,y))^2+(L(x,y+1)-L(x,y-1))^2}</script><script type="
 <h2 id="SURF-简介"><a href="#SURF-简介" class="headerlink" title="SURF 简介"></a>SURF 简介</h2><p>参考了好友整理的一篇文章<a href="http://simtalk.cn/2017/08/18/%E7%89%B9%E5%BE%81%E4%B8%8E%E5%8C%B9%E9%85%8D/#ORB" target="_blank" rel="external">特征与匹配</a></p>
 <ol>
 <li>整体的思路就是将计算DOG的一整套东西来检测关键点的理论替换成了利用hessian矩阵来检测关键点，因为当Hessian矩阵的判别式取得局部极大值时，判定当前点是比周围邻域内其他点更亮或更暗的点，由此来定位关键点的位置。<br>上述过程要进行Hessian判别式的计算，可以采用box filter的方式进行加速。</li>
-<li>构建尺度金字塔的方式不同，具体见下图：</li>
+<li>构建尺度金字塔的方式不同，具体见下图：<center><img src="/2017/10/01/SIFT和SURF特性提取总结/diff.png" alt="differences" title="differences"></center></li>
+<li>Sift特征点方向分配是采用在特征点邻域内统计其梯度直方图，取直方图bin值最大的以及超过最大bin值80%的那些方向作为特征点的主方向。而在Surf中，采用的是统计特征点圆形邻域内的harr小波特征。即在特征点的圆形邻域内，统计60度扇形内所有点的水平、垂直harr小波特征总和，然后扇形以0.2弧度大小的间隔进行旋转并再次统计该区域内harr小波特征值之后，最后将值最大的那个扇形的方向作为该特征点的主方向。该过程示意图如下：<center><img src="/2017/10/01/SIFT和SURF特性提取总结/direction.jpg" alt="direction" title="direction"></center></li>
+<li>生成特征点描述子: 在Sift中，是取特征点周围4*4个区域块，统计每小块内8个梯度方向，用着4*4*8=128维向量作为Sift特征的描述子。surf算法中，也是在特征点周围取一个4*4的矩形区域块，但是所取得矩形区域方向是沿着特征点的主方向。每个子区域统计25个像素的水平方向和垂直方向的haar小波特征，这里的水平和垂直方向都是相对主方向而言的。该haar小波特征为水平方向值之后、垂直方向值之后、水平方向绝对值之后以及垂直方向绝对值之和4个方向。<br>把这4个值作为每个子块区域的特征向量，所以一共有4*4*4=64维向量作为Surf特征的描述子，比Sift特征的描述子减少了2倍。<center><img src="/2017/10/01/SIFT和SURF特性提取总结/diff_more.jpg" alt="more differences" title="more differences"></center>
+
+
+</li>
 </ol>
-<center><img src="/2017/10/01/SIFT和SURF特性提取总结/diff.png" alt="differences" title="differences"></center>
-3. Sift特征点方向分配是采用在特征点邻域内统计其梯度直方图，取直方图bin值最大的以及超过最大bin值80%的那些方向作为特征点的主方向。而在Surf中，采用的是统计特征点圆形邻域内的harr小波特征。即在特征点的圆形邻域内，统计60度扇形内所有点的水平、垂直harr小波特征总和，然后扇形以0.2弧度大小的间隔进行旋转并再次统计该区域内harr小波特征值之后，最后将值最大的那个扇形的方向作为该特征点的主方向。该过程示意图如下：
-<center><img src="/2017/10/01/SIFT和SURF特性提取总结/direction.jpg" alt="direction" title="direction"></center>
-4. 生成特征点描述子: 在Sift中，是取特征点周围4\*4个区域块，统计每小块内8个梯度方向，用着4\*4\*8=128维向量作为Sift特征的描述子。surf算法中，也是在特征点周围取一个4\*4的矩形区域块，但是所取得矩形区域方向是沿着特征点的主方向。每个子区域统计25个像素的水平方向和垂直方向的haar小波特征，这里的水平和垂直方向都是相对主方向而言的。该haar小波特征为水平方向值之后、垂直方向值之后、水平方向绝对值之后以及垂直方向绝对值之和4个方向。
-
-把这4个值作为每个子块区域的特征向量，所以一共有4\*4\*4=64维向量作为Surf特征的描述子，比Sift特征的描述子减少了2倍。
-<center><img src="/2017/10/01/SIFT和SURF特性提取总结/diff_more.jpg" alt="more differences" title="more differences"></center>
-
-
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="http://blog.csdn.net/abcjennifer/article/details/7639681/" target="_blank" rel="external">SIFT特征提取分析</a></li>
 <li><a href="http://blog.csdn.net/luoshixian099/article/details/47807103" target="_blank" rel="external">特征匹配-SURF原理与源码解析（一）</a></li>
