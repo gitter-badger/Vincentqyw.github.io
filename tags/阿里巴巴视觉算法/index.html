@@ -700,13 +700,6 @@
 
   
 
-    
-      <script id="dsq-count-scr" src="https://vincentqin.disqus.com/count.js" async></script>
-    
-
-    
-
-  
 
 
 
@@ -719,6 +712,26 @@
 
 
 
+
+   
+   
+   
+   
+   
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '1b805371619335043d04',
+          clientSecret: '10257b780b22216bbbba192cf6b2d5c00538f023',
+          repo: 'gitalk',
+          owner: 'Vincentqyw',
+          admin: ['Your github name'], 
+          id: location.pathname,
+		  distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')    
+       </script>
 
 
   

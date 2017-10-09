@@ -417,17 +417,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/10/01/SIFT和SURF特性提取总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/10/01/SIFT和SURF特性提取总结/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -648,12 +637,9 @@ m(x,y)=\sqrt{(L(x+1,y)-L(x-1,y))^2+(L(x,y+1)-L(x,y-1))^2}</script><script type="
           
   <div class="comments" id="comments">
     
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
+    <div id="gitalk-container"></div>
+
+
     
   </div>
 
@@ -1007,25 +993,6 @@ m(x,y)=\sqrt{(L(x+1,y)-L(x-1,y))^2+(L(x,y+1)-L(x,y-1))^2}</script><script type="
 
   
 
-    
-      <script id="dsq-count-scr" src="https://vincentqin.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'https://www.vincentqin.tech/2017/10/01/SIFT和SURF特性提取总结/';
-          this.page.identifier = '2017/10/01/SIFT和SURF特性提取总结/';
-          this.page.title = 'SIFT和SURF特性提取总结';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://vincentqin.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
-
-  
 
 
 
@@ -1038,6 +1005,26 @@ m(x,y)=\sqrt{(L(x+1,y)-L(x-1,y))^2+(L(x,y+1)-L(x,y-1))^2}</script><script type="
 
 
 
+
+   
+   
+   
+   
+   
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '1b805371619335043d04',
+          clientSecret: '10257b780b22216bbbba192cf6b2d5c00538f023',
+          repo: 'gitalk',
+          owner: 'Vincentqyw',
+          admin: ['Your github name'], 
+          id: location.pathname,
+		  distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')    
+       </script>
 
 
   
