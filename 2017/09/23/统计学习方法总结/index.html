@@ -731,9 +731,15 @@ P(Y=c_k)\prod_{j=1}^nP(X^{(j)}=x^{(j)}|Y=c_k)</script></li>
 
           
   <div class="comments" id="comments">
-    
-    <div id="gitalk-container"></div>
 
+    
+      
+          <div onclick="showGitalk();" id="gitalk_title" class="gitalk_title">显示 Gitalk 评论</div>
+      
+      <div id="gitalk_container" style="display:none;"></div>
+    
+    
+    
 
     
   </div>
@@ -1101,26 +1107,30 @@ P(Y=c_k)\prod_{j=1}^nP(X^{(j)}=x^{(j)}|Y=c_k)</script></li>
 
 
 
-   
-   
-   
-   
-   
   <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
   <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-   <script type="text/javascript">
-        var gitalk = new Gitalk({
-          clientID: 'fbf87ffe2080934209fc',
-          clientSecret: '23048ae0f682b6e34844f41d2b84d171bb7b2854',
-          repo: 'gitalk',
-          owner: 'Vincentqyw',
-          admin: [''], 
-          id: location.pathname,
-		  distractionFreeMode: false
-        })
-        gitalk.render('gitalk-container')    
-       </script>
+  <script>
+    function showGitalk(){
+        $("#gitalk_title").attr("style","display:none");
+        $("#gitalk_container").attr("style","").addClass("gitalk_container");
 
+        var gitalk = new Gitalk({
+            id: window.location.pathname,
+            clientID: 'fbf87ffe2080934209fc',
+            clientSecret: '23048ae0f682b6e34844f41d2b84d171bb7b2854',
+            repo: 'gitalk',
+            owner: 'Vincentqyw',
+            admin: ['Vincentqyw'],
+            distractionFreeMode: true,
+            body: location.href
+        });
+
+        gitalk.render('gitalk_container');
+    }
+
+    
+
+  </script>
 
   
 
