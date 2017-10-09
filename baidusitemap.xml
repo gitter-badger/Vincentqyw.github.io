@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://www.vincentqin.tech/2017/10/01/SIFT%E5%92%8CSURF%E7%89%B9%E6%80%A7%E6%8F%90%E5%8F%96%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2017-10-08T12:21:16.223Z</lastmod>
+    <lastmod>2017-10-08T14:02:09.131Z</lastmod>
     <data>
         <display>
         <title>SIFT和SURF特性提取总结</title>
@@ -32,13 +32,13 @@
         <title>降维之PCA主成分分析原理</title>
         <pubTime>2017-10-02T05:22:25.000Z</pubTime>
         
+        <tag>机器学习</tag>
+         
         <tag>PCA</tag>
          
         <tag>LDA</tag>
          
         <tag>降维</tag>
-         
-        <tag>机器学习</tag>
          
          
            

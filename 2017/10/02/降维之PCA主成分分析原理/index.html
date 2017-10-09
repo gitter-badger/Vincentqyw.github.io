@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="PCA,LDA,降维,机器学习," />
+  <meta name="keywords" content="机器学习,PCA,LDA,降维," />
 
 
 
@@ -107,7 +107,7 @@
 
 
 
-<meta name="keywords" content="PCA,LDA,降维,机器学习">
+<meta name="keywords" content="机器学习,PCA,LDA,降维">
 <meta property="og:type" content="article">
 <meta property="og:title" content="降维之PCA主成分分析原理">
 <meta property="og:url" content="https://www.vincentqin.tech/2017/10/02/降维之PCA主成分分析原理/index.html">
@@ -571,13 +571,13 @@ s.t.  W^TW=I</script><p>解释：<strong>最大化方差同时最小化协方差
       
         <div class="post-tags">
           
+            <a href="/tags/机器学习/" rel="tag"><i class="fa fa-star"></i> 机器学习</a>
+          
             <a href="/tags/PCA/" rel="tag"><i class="fa fa-star"></i> PCA</a>
           
             <a href="/tags/LDA/" rel="tag"><i class="fa fa-star"></i> LDA</a>
           
             <a href="/tags/降维/" rel="tag"><i class="fa fa-star"></i> 降维</a>
-          
-            <a href="/tags/机器学习/" rel="tag"><i class="fa fa-star"></i> 机器学习</a>
           
         </div>
       
@@ -623,12 +623,6 @@ s.t.  W^TW=I</script><p>解释：<strong>最大化方差同时最小化协方差
 
           
   <div class="comments" id="comments">
-    
-      
-        <div onclick="ShowGitment()" id="gitment-display-button">显示 Gitment 评论</div>
-        <div id="gitment-container" style="display:none"></div>
-      
-
     
   </div>
 
@@ -994,29 +988,42 @@ s.t.  W^TW=I</script><p>解释：<strong>最大化方差同时最小化协方差
 
 
 
+  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+  <script>
+    const myTheme = {
+      render(state, instance) {
+        const container = document.createElement('div');
+        container.lang = "en-US";
+        container.className = 'gitment-container gitment-root-container';
+        container.appendChild(instance.renderHeader(state, instance));
+        container.appendChild(instance.renderEditor(state, instance));
+        container.appendChild(instance.renderComments(state, instance));
+        container.appendChild(instance.renderFooter(state, instance));
+        return container;
+      }
+    }
+
+    function showGitment(){
+      $("#gitment_title").attr("style","display:none");
+      $("#gitment_container").attr("style","").addClass("gitment_container");
+      var gitment = new Gitment({
+        id: window.location.pathname,
+        theme: myTheme,
+        owner: '',
+        repo: 'gitment',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('gitment_container');
+    }
+
     
+      showGitment();
     
-    
-    
-    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-    
-        <script type="text/javascript">
-            function ShowGitment(){
-                document.getElementById("gitment-display-button").style.display = "none";
-                document.getElementById("gitment-container").style.display = "block";
-                var gitment = new Gitment({
-                    id: window.location.pathname, 
-                    owner: 'Vincentqyw',
-                    repo: 'gitment',
-                    oauth: {
-                        client_id: '1b805371619335043d04',
-                        client_secret: '10257b780b22216bbbba192cf6b2d5c00538f023',
-                    }});
-                gitment.render('gitment-container');
-            }
-        </script>
-    
+  </script>
 
 
   
