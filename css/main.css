@@ -928,13 +928,13 @@ pre .javascript .function {
   box-sizing: border-box;
   position: fixed;
   bottom: -100px;
-  right: 30px;
+  right: 20px;
   z-index: 1050;
   padding: 0 6px;
   width: initial;
   background: #222;
   font-size: 12px;
-  opacity: 0.6;
+  opacity: 0.8;
   color: #fff;
   cursor: pointer;
   text-align: center;
@@ -955,7 +955,7 @@ pre .javascript .function {
   }
 }
 .back-to-top.back-to-top-on {
-  bottom: 30px;
+  bottom: 80px;
 }
 .header {
   background: #fff;
@@ -1693,7 +1693,7 @@ pre .javascript .function {
 }
 .sidebar-toggle {
   position: fixed;
-  right: 30px;
+  right: 20px;
   bottom: 45px;
   width: 14px;
   height: 14px;
@@ -1820,7 +1820,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #4e09ff;
+  background: #eb11a3;
 }
 .links-of-blogroll {
   font-size: 13px;
