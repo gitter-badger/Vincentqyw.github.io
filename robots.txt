@@ -19,4 +19,4 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: http://www.vincentqin.tech//sitemap.xml
+Sitemap: https://www.vincentqin.tech//sitemap.xml
